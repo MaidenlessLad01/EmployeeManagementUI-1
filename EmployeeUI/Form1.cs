@@ -25,7 +25,9 @@ namespace EmployeeUI
 
         private void btnDashboard_Click(object sender, EventArgs e)
         {
-
+            dashboard1.Visible = true;
+            addEmployee1.Visible = false;
+            edit1.Visible = false;
         }
 
         private void picClose_Click(object sender, EventArgs e)
@@ -53,7 +55,42 @@ namespace EmployeeUI
 
         private void lblSignOut_Click(object sender, EventArgs e)
         {
+            DialogResult check = new DialogResult();
 
+            check = MessageBox.Show("Are you sure you want to sign out?","Sign Out",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+            if(check == DialogResult.Yes) 
+            { 
+                Login log = new Login();
+                log.Show();
+                this.Hide();
+            }
+        }
+
+        private void btnAddEmployee_Click(object sender, EventArgs e)
+        {
+            dashboard1.Visible = false;
+            addEmployee1.Visible = true;
+            edit1.Visible = false;
+        }
+
+        private void picSignout_Click(object sender, EventArgs e)
+        {
+            DialogResult check = new DialogResult();
+
+            check = MessageBox.Show("Are you sure you want to sign out?", "Sign Out", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (check == DialogResult.Yes)
+            {
+                Login log = new Login();
+                log.Show();
+                this.Hide();
+            }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            dashboard1.Visible = false;
+            addEmployee1.Visible = false;
+            edit1.Visible = true;
         }
     }
 
