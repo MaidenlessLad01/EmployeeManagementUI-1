@@ -18,10 +18,6 @@ namespace EmployeeUI
             this.FormBorderStyle = FormBorderStyle.None;
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnDashboard_Click(object sender, EventArgs e)
         {
@@ -34,12 +30,6 @@ namespace EmployeeUI
         {
             Environment.Exit(0);
         }
-
-        private void dashboard1_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void lblSignOut_MouseEnter(object sender, EventArgs e)
         {
             Label label = sender as Label;
