@@ -50,9 +50,10 @@ namespace EmployeeUI
             // 
             this.panel1.BackColor = System.Drawing.Color.Navy;
             this.panel1.Controls.Add(this.lblTitle);
-            this.panel1.Location = new System.Drawing.Point(308, 0);
+            this.panel1.Location = new System.Drawing.Point(411, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(219, 355);
+            this.panel1.Size = new System.Drawing.Size(292, 437);
             this.panel1.TabIndex = 21;
             // 
             // lblTitle
@@ -60,9 +61,10 @@ namespace EmployeeUI
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblTitle.Location = new System.Drawing.Point(38, 274);
+            this.lblTitle.Location = new System.Drawing.Point(59, 337);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(147, 50);
+            this.lblTitle.Size = new System.Drawing.Size(181, 62);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "   Employee \r\nManagement";
             // 
@@ -71,9 +73,10 @@ namespace EmployeeUI
             this.picEye1.BackColor = System.Drawing.SystemColors.Window;
             this.picEye1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picEye1.Image = global::EmployeeUI.Properties.Resources.icons8_eye_50;
-            this.picEye1.Location = new System.Drawing.Point(257, 176);
+            this.picEye1.Location = new System.Drawing.Point(343, 217);
+            this.picEye1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.picEye1.Name = "picEye1";
-            this.picEye1.Size = new System.Drawing.Size(25, 24);
+            this.picEye1.Size = new System.Drawing.Size(33, 30);
             this.picEye1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picEye1.TabIndex = 31;
             this.picEye1.TabStop = false;
@@ -82,9 +85,10 @@ namespace EmployeeUI
             // txtpassword
             // 
             this.txtpassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtpassword.Location = new System.Drawing.Point(17, 175);
+            this.txtpassword.Location = new System.Drawing.Point(23, 215);
+            this.txtpassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtpassword.Name = "txtpassword";
-            this.txtpassword.Size = new System.Drawing.Size(270, 26);
+            this.txtpassword.Size = new System.Drawing.Size(359, 30);
             this.txtpassword.TabIndex = 30;
             this.txtpassword.UseSystemPasswordChar = true;
             // 
@@ -93,9 +97,10 @@ namespace EmployeeUI
             this.lblpassword.AutoSize = true;
             this.lblpassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblpassword.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblpassword.Location = new System.Drawing.Point(14, 148);
+            this.lblpassword.Location = new System.Drawing.Point(19, 182);
+            this.lblpassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblpassword.Name = "lblpassword";
-            this.lblpassword.Size = new System.Drawing.Size(79, 18);
+            this.lblpassword.Size = new System.Drawing.Size(97, 24);
             this.lblpassword.TabIndex = 29;
             this.lblpassword.Text = "Password:";
             // 
@@ -108,9 +113,10 @@ namespace EmployeeUI
             this.btnSignup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSignup.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSignup.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnSignup.Location = new System.Drawing.Point(94, 294);
+            this.btnSignup.Location = new System.Drawing.Point(125, 362);
+            this.btnSignup.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSignup.Name = "btnSignup";
-            this.btnSignup.Size = new System.Drawing.Size(104, 35);
+            this.btnSignup.Size = new System.Drawing.Size(139, 43);
             this.btnSignup.TabIndex = 28;
             this.btnSignup.Text = "SIGNUP";
             this.btnSignup.UseVisualStyleBackColor = false;
@@ -121,9 +127,10 @@ namespace EmployeeUI
             this.picEye2.BackColor = System.Drawing.SystemColors.Window;
             this.picEye2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picEye2.Image = global::EmployeeUI.Properties.Resources.icons8_eye_50;
-            this.picEye2.Location = new System.Drawing.Point(257, 246);
+            this.picEye2.Location = new System.Drawing.Point(343, 303);
+            this.picEye2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.picEye2.Name = "picEye2";
-            this.picEye2.Size = new System.Drawing.Size(25, 24);
+            this.picEye2.Size = new System.Drawing.Size(33, 30);
             this.picEye2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picEye2.TabIndex = 27;
             this.picEye2.TabStop = false;
@@ -132,9 +139,10 @@ namespace EmployeeUI
             // txtconfpassword
             // 
             this.txtconfpassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtconfpassword.Location = new System.Drawing.Point(17, 245);
+            this.txtconfpassword.Location = new System.Drawing.Point(23, 302);
+            this.txtconfpassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtconfpassword.Name = "txtconfpassword";
-            this.txtconfpassword.Size = new System.Drawing.Size(270, 26);
+            this.txtconfpassword.Size = new System.Drawing.Size(359, 30);
             this.txtconfpassword.TabIndex = 26;
             this.txtconfpassword.UseSystemPasswordChar = true;
             // 
@@ -143,18 +151,20 @@ namespace EmployeeUI
             this.lblconfpassword.AutoSize = true;
             this.lblconfpassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblconfpassword.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblconfpassword.Location = new System.Drawing.Point(14, 218);
+            this.lblconfpassword.Location = new System.Drawing.Point(19, 268);
+            this.lblconfpassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblconfpassword.Name = "lblconfpassword";
-            this.lblconfpassword.Size = new System.Drawing.Size(136, 18);
+            this.lblconfpassword.Size = new System.Drawing.Size(167, 24);
             this.lblconfpassword.TabIndex = 25;
             this.lblconfpassword.Text = "Confirm Password:";
             // 
             // txtusername
             // 
             this.txtusername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtusername.Location = new System.Drawing.Point(17, 102);
+            this.txtusername.Location = new System.Drawing.Point(23, 126);
+            this.txtusername.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtusername.Name = "txtusername";
-            this.txtusername.Size = new System.Drawing.Size(270, 26);
+            this.txtusername.Size = new System.Drawing.Size(359, 30);
             this.txtusername.TabIndex = 24;
             // 
             // lblusername
@@ -162,9 +172,10 @@ namespace EmployeeUI
             this.lblusername.AutoSize = true;
             this.lblusername.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblusername.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblusername.Location = new System.Drawing.Point(14, 75);
+            this.lblusername.Location = new System.Drawing.Point(19, 92);
+            this.lblusername.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblusername.Name = "lblusername";
-            this.lblusername.Size = new System.Drawing.Size(81, 18);
+            this.lblusername.Size = new System.Drawing.Size(102, 24);
             this.lblusername.TabIndex = 23;
             this.lblusername.Text = "Username:";
             // 
@@ -173,17 +184,18 @@ namespace EmployeeUI
             this.lblregister.AutoSize = true;
             this.lblregister.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblregister.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblregister.Location = new System.Drawing.Point(11, 22);
+            this.lblregister.Location = new System.Drawing.Point(15, 27);
+            this.lblregister.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblregister.Name = "lblregister";
-            this.lblregister.Size = new System.Drawing.Size(238, 31);
+            this.lblregister.Size = new System.Drawing.Size(292, 39);
             this.lblregister.TabIndex = 22;
             this.lblregister.Text = "Register Account";
             // 
             // RegisterAcc
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(527, 352);
+            this.ClientSize = new System.Drawing.Size(703, 433);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.picEye1);
             this.Controls.Add(this.txtpassword);
@@ -195,6 +207,7 @@ namespace EmployeeUI
             this.Controls.Add(this.txtusername);
             this.Controls.Add(this.lblusername);
             this.Controls.Add(this.lblregister);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "RegisterAcc";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RegisterAcc";
