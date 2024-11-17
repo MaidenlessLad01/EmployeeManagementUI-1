@@ -40,5 +40,7 @@ namespace EmployeeUI
             cboPosition.ResetText();
             cboStatus.ResetText();
         }
+
+        
     }
 }
