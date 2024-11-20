@@ -11,10 +11,16 @@ using System.Drawing.Drawing2D;
 
 namespace EmployeeUI
 {
+    
+
     public partial class Login : Form
     {
         //var dec
+        Login login;
+        database1DataContext db = new database1DataContext();
         bool isPasswordVisible = false;
+     
+
         public Login()
         {
             InitializeComponent();
@@ -70,9 +76,31 @@ namespace EmployeeUI
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            Form1 f1 = new Form1();
-            f1.Show();
-            this.Hide();
+            var auth = (from user in db.tblUserLogins
+                        where user.username == txtusername.Text
+                        select user).FirstOrDefault();
+
+            if(auth != null && auth.password == txtpassword.Text)
+            {
+                if (auth.role == "Manager")
+                {
+                    MessageBox.Show("Login Sucessful. Welcome Admin " + txtusername.Text, "Login");
+                    Form1 f1 = new Form1();
+                    f1.Show();
+                    this.Hide();
+                }
+                else if(auth.role == "Junior Developer")
+                {
+                    MessageBox.Show("Login Sucessful. Welcome " + txtusername.Text, "Login");
+                    EmployeeInfo empinfo = new EmployeeInfo();
+                    empinfo.Show();
+                    this.Hide();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Incorrect Credentials","Error");
+            }
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

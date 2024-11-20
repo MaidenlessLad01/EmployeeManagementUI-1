@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace EmployeeUI
 {
-    public partial class Attendance : UserControl
+    public partial class EmployeeDetails : UserControl
     {
-        public Attendance()
+        public EmployeeDetails()
         {
             InitializeComponent();
-        }
-
-        private void dtpAttendanceDate_ValueChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

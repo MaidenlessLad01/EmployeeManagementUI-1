@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="EmployeeDetails" Class="database1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(localdb)\LocalDB;Initial Catalog=EmployeeDetails;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False" SettingsObjectName="EmployeeUI.Properties.Settings" SettingsPropertyName="EmployeeDetailsConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.tblUserLogin" Member="tblUserLogins">
+    <Type Name="tblUserLogin">
+      <Column Name="employeeID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="username" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="password" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="role" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Association Name="tblUserLogin_tblAdminLogin" Member="tblAdminLogins" ThisKey="employeeID" OtherKey="employeeID" Type="tblAdminLogin" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblAdminLogin" Member="tblAdminLogins">
+    <Type Name="tblAdminLogin">
+      <Column Name="adminID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="employeeID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="tblUserLogin_tblAdminLogin" Member="tblUserLogin" ThisKey="employeeID" OtherKey="employeeID" Type="tblUserLogin" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
