@@ -115,8 +115,8 @@ namespace EmployeeUI
             using (LinearGradientBrush brush = new LinearGradientBrush(
                 new Point(0, panelHeight / 2), // Start the gradient in the middle of the panel
                 new Point(0, 0),               // End the gradient at the top
-                Color.Blue,                    // Solid blue color at the middle
-                Color.Transparent))            // Fading to transparent at the top
+                Color.Blue,                    
+                Color.Transparent))            
             {
                 // Fill the top half with the gradient
                 e.Graphics.FillRectangle(brush, new Rectangle(0, 0, panelWidth, panelHeight / 2));
