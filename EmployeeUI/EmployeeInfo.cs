@@ -17,6 +17,16 @@ namespace EmployeeUI
             InitializeComponent();
         }
 
-       
+        private void btnProfile_Click(object sender, EventArgs e)
+        {
+            attendance1.Visible = false;
+            employeeDetails1.Visible = true;
+        }
+
+        private void btnAttendance_Click(object sender, EventArgs e)
+        {
+            attendance1.Visible = true;
+            employeeDetails1.Visible = false;
+        }
     }
 }

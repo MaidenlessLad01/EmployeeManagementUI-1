@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 using System.Windows.Forms;
 
 namespace EmployeeUI
@@ -14,6 +15,7 @@ namespace EmployeeUI
     {
         //var dec
         bool isPasswordVisible = false;
+        database1DataContext db = new database1DataContext();
         public RegisterAcc()
         {
             InitializeComponent();
@@ -57,6 +59,15 @@ namespace EmployeeUI
 
         private void btnSignup_Click(object sender, EventArgs e)
         {
+            var exist = (from user in db.Accounts
+                         where user.Username == txtusername.Text
+                         select user).ToList();
+
+            //if(exist.Count == 0 && txtpassword.Text == txtconfpassword.Text)
+            //{
+            //    db.SP_ADDACCOUNT(txtusername.Text, txtpassword.Text);
+            //    MessageBox.Show("Account Created","Register");
+            //}
 
             MessageBox.Show("Account Created Successfully!","Account Created");
             Login log = new Login();

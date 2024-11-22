@@ -2,23 +2,23 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="database1">
   <DataContextMoniker Name="/database1DataContext" />
   <nestedChildShapes>
-    <classShape Id="901f2766-b586-41ff-8b18-6af238773cdb" absoluteBounds="3, 1.375, 2, 1.5785953776041666">
-      <DataClassMoniker Name="/database1DataContext/tblUserLogin" />
+    <classShape Id="327444ed-6332-4bec-b112-8be52048f124" absoluteBounds="2.875, 2.125, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/database1DataContext/EmployeeDetail" />
       <nestedChildShapes>
-        <elementListCompartment Id="42507148-09f7-4b16-8f0c-5d00df63ae54" absoluteBounds="3.015, 1.835, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="e84726b8-bdb9-462e-9bf2-fe24eb391978" absoluteBounds="2.89, 2.585, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="33a1405e-02db-4409-84d0-6c6680202608" absoluteBounds="1.25, 3.625, 2, 1.1939925130208333">
-      <DataClassMoniker Name="/database1DataContext/tblAdminLogin" />
+    <classShape Id="a26d3a54-cb6e-4b4d-a9b0-66e1f6b55e63" absoluteBounds="4.125, 5.375, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/database1DataContext/Account" />
       <nestedChildShapes>
-        <elementListCompartment Id="476a3ca8-8b7b-4d46-b172-8f268259a36c" absoluteBounds="1.2650000000000001, 4.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="a639fa0a-b8eb-48bf-8e5c-14898371fcd7" absoluteBounds="4.14, 5.835, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(4.1250005 : 2.95359537760417); (4.1250005 : 4.22199625651042); (3.25 : 4.22199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/database1DataContext/tblUserLogin/tblUserLogin_tblAdminLogin" />
+    <associationConnector edgePoints="[(4.5 : 4.85740397135417); (4.5 : 5.375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/database1DataContext/EmployeeDetail/EmployeeDetail_Account" />
       <nodes>
-        <classShapeMoniker Id="901f2766-b586-41ff-8b18-6af238773cdb" />
-        <classShapeMoniker Id="33a1405e-02db-4409-84d0-6c6680202608" />
+        <classShapeMoniker Id="327444ed-6332-4bec-b112-8be52048f124" />
+        <classShapeMoniker Id="a26d3a54-cb6e-4b4d-a9b0-66e1f6b55e63" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

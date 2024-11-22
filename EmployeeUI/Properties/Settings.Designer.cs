@@ -33,5 +33,38 @@ namespace EmployeeUI.Properties {
                 return ((string)(this["EmployeeDetailsConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(localdb)\\LocalDB;Initial Catalog=test1;Integrated Security=True;Trus" +
+            "tServerCertificate=True")]
+        public string test1ConnectionString {
+            get {
+                return ((string)(this["test1ConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(localdb)\\LocalDB;Initial Catalog=test4;Integrated Security=True;Trus" +
+            "tServerCertificate=True")]
+        public string test4ConnectionString {
+            get {
+                return ((string)(this["test4ConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(localdb)\\LocalDB;Initial Catalog=test5;Integrated Security=True;Trus" +
+            "tServerCertificate=True")]
+        public string test5ConnectionString {
+            get {
+                return ((string)(this["test5ConnectionString"]));
+            }
+        }
     }
 }

@@ -29,9 +29,15 @@ namespace EmployeeUI
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlContainer = new System.Windows.Forms.Panel();
             this.dgvEmployee = new System.Windows.Forms.DataGridView();
             this.pnlEmployeeDetails = new System.Windows.Forms.Panel();
+            this.txtusername = new System.Windows.Forms.TextBox();
+            this.lblusername = new System.Windows.Forms.Label();
+            this.txtpassword = new System.Windows.Forms.TextBox();
+            this.lblpassword = new System.Windows.Forms.Label();
+            this.dtpDoB = new System.Windows.Forms.DateTimePicker();
             this.lblDOB = new System.Windows.Forms.Label();
             this.cboPosition = new System.Windows.Forms.ComboBox();
             this.txtPhoneNum = new System.Windows.Forms.TextBox();
@@ -40,19 +46,16 @@ namespace EmployeeUI
             this.txtMName = new System.Windows.Forms.TextBox();
             this.txtLName = new System.Windows.Forms.TextBox();
             this.txtFName = new System.Windows.Forms.TextBox();
-            this.txtEmpID = new System.Windows.Forms.TextBox();
             this.lblPosition = new System.Windows.Forms.Label();
             this.lblGender = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblPhoneNum = new System.Windows.Forms.Label();
             this.lblMName = new System.Windows.Forms.Label();
             this.lblLName = new System.Windows.Forms.Label();
-            this.lblEmpID = new System.Windows.Forms.Label();
             this.lblFName = new System.Windows.Forms.Label();
             this.pnlEmpDetContainer = new System.Windows.Forms.Panel();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.dtpDoB = new System.Windows.Forms.DateTimePicker();
             this.pnlContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployee)).BeginInit();
             this.pnlEmployeeDetails.SuspendLayout();
@@ -72,10 +75,23 @@ namespace EmployeeUI
             // 
             // dgvEmployee
             // 
+            this.dgvEmployee.AllowUserToAddRows = false;
+            this.dgvEmployee.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Navy;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvEmployee.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEmployee.EnableHeadersVisualStyles = false;
             this.dgvEmployee.Location = new System.Drawing.Point(21, 55);
             this.dgvEmployee.Margin = new System.Windows.Forms.Padding(4);
             this.dgvEmployee.Name = "dgvEmployee";
+            this.dgvEmployee.ReadOnly = true;
+            this.dgvEmployee.RowHeadersVisible = false;
             this.dgvEmployee.RowHeadersWidth = 51;
             this.dgvEmployee.Size = new System.Drawing.Size(827, 172);
             this.dgvEmployee.TabIndex = 0;
@@ -83,6 +99,10 @@ namespace EmployeeUI
             // pnlEmployeeDetails
             // 
             this.pnlEmployeeDetails.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.pnlEmployeeDetails.Controls.Add(this.txtusername);
+            this.pnlEmployeeDetails.Controls.Add(this.lblusername);
+            this.pnlEmployeeDetails.Controls.Add(this.txtpassword);
+            this.pnlEmployeeDetails.Controls.Add(this.lblpassword);
             this.pnlEmployeeDetails.Controls.Add(this.dtpDoB);
             this.pnlEmployeeDetails.Controls.Add(this.lblDOB);
             this.pnlEmployeeDetails.Controls.Add(this.cboPosition);
@@ -92,14 +112,12 @@ namespace EmployeeUI
             this.pnlEmployeeDetails.Controls.Add(this.txtMName);
             this.pnlEmployeeDetails.Controls.Add(this.txtLName);
             this.pnlEmployeeDetails.Controls.Add(this.txtFName);
-            this.pnlEmployeeDetails.Controls.Add(this.txtEmpID);
             this.pnlEmployeeDetails.Controls.Add(this.lblPosition);
             this.pnlEmployeeDetails.Controls.Add(this.lblGender);
             this.pnlEmployeeDetails.Controls.Add(this.lblEmail);
             this.pnlEmployeeDetails.Controls.Add(this.lblPhoneNum);
             this.pnlEmployeeDetails.Controls.Add(this.lblMName);
             this.pnlEmployeeDetails.Controls.Add(this.lblLName);
-            this.pnlEmployeeDetails.Controls.Add(this.lblEmpID);
             this.pnlEmployeeDetails.Controls.Add(this.lblFName);
             this.pnlEmployeeDetails.Location = new System.Drawing.Point(21, 14);
             this.pnlEmployeeDetails.Margin = new System.Windows.Forms.Padding(4);
@@ -107,11 +125,61 @@ namespace EmployeeUI
             this.pnlEmployeeDetails.Size = new System.Drawing.Size(661, 288);
             this.pnlEmployeeDetails.TabIndex = 21;
             // 
+            // txtusername
+            // 
+            this.txtusername.BackColor = System.Drawing.SystemColors.Control;
+            this.txtusername.Location = new System.Drawing.Point(477, 219);
+            this.txtusername.Margin = new System.Windows.Forms.Padding(4);
+            this.txtusername.Name = "txtusername";
+            this.txtusername.Size = new System.Drawing.Size(164, 22);
+            this.txtusername.TabIndex = 23;
+            // 
+            // lblusername
+            // 
+            this.lblusername.AutoSize = true;
+            this.lblusername.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblusername.Location = new System.Drawing.Point(380, 219);
+            this.lblusername.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblusername.Name = "lblusername";
+            this.lblusername.Size = new System.Drawing.Size(91, 20);
+            this.lblusername.TabIndex = 22;
+            this.lblusername.Text = "Username:";
+            // 
+            // txtpassword
+            // 
+            this.txtpassword.BackColor = System.Drawing.SystemColors.Control;
+            this.txtpassword.Location = new System.Drawing.Point(477, 173);
+            this.txtpassword.Margin = new System.Windows.Forms.Padding(4);
+            this.txtpassword.Name = "txtpassword";
+            this.txtpassword.Size = new System.Drawing.Size(164, 22);
+            this.txtpassword.TabIndex = 21;
+            // 
+            // lblpassword
+            // 
+            this.lblpassword.AutoSize = true;
+            this.lblpassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblpassword.Location = new System.Drawing.Point(383, 173);
+            this.lblpassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblpassword.Name = "lblpassword";
+            this.lblpassword.Size = new System.Drawing.Size(88, 20);
+            this.lblpassword.TabIndex = 20;
+            this.lblpassword.Text = "Password:";
+            // 
+            // dtpDoB
+            // 
+            this.dtpDoB.CalendarMonthBackground = System.Drawing.SystemColors.Control;
+            this.dtpDoB.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDoB.Location = new System.Drawing.Point(151, 175);
+            this.dtpDoB.Name = "dtpDoB";
+            this.dtpDoB.Size = new System.Drawing.Size(165, 22);
+            this.dtpDoB.TabIndex = 19;
+            this.dtpDoB.Value = new System.DateTime(2024, 11, 17, 12, 30, 3, 0);
+            // 
             // lblDOB
             // 
             this.lblDOB.AutoSize = true;
             this.lblDOB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDOB.Location = new System.Drawing.Point(19, 226);
+            this.lblDOB.Location = new System.Drawing.Point(23, 175);
             this.lblDOB.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDOB.Name = "lblDOB";
             this.lblDOB.Size = new System.Drawing.Size(110, 20);
@@ -129,7 +197,7 @@ namespace EmployeeUI
             "Team Leader",
             "Manager",
             "69"});
-            this.cboPosition.Location = new System.Drawing.Point(477, 78);
+            this.cboPosition.Location = new System.Drawing.Point(477, 29);
             this.cboPosition.Margin = new System.Windows.Forms.Padding(4);
             this.cboPosition.Name = "cboPosition";
             this.cboPosition.Size = new System.Drawing.Size(164, 24);
@@ -138,7 +206,7 @@ namespace EmployeeUI
             // txtPhoneNum
             // 
             this.txtPhoneNum.BackColor = System.Drawing.SystemColors.Control;
-            this.txtPhoneNum.Location = new System.Drawing.Point(477, 24);
+            this.txtPhoneNum.Location = new System.Drawing.Point(151, 219);
             this.txtPhoneNum.Margin = new System.Windows.Forms.Padding(4);
             this.txtPhoneNum.Name = "txtPhoneNum";
             this.txtPhoneNum.Size = new System.Drawing.Size(164, 22);
@@ -147,7 +215,7 @@ namespace EmployeeUI
             // txtEmail
             // 
             this.txtEmail.BackColor = System.Drawing.SystemColors.Control;
-            this.txtEmail.Location = new System.Drawing.Point(477, 173);
+            this.txtEmail.Location = new System.Drawing.Point(477, 127);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(164, 22);
@@ -163,7 +231,7 @@ namespace EmployeeUI
             "Attack Helicopter",
             "Shopping Cart",
             "Prefer Not To Say"});
-            this.cboGender.Location = new System.Drawing.Point(477, 127);
+            this.cboGender.Location = new System.Drawing.Point(477, 76);
             this.cboGender.Margin = new System.Windows.Forms.Padding(4);
             this.cboGender.Name = "cboGender";
             this.cboGender.Size = new System.Drawing.Size(164, 24);
@@ -172,7 +240,7 @@ namespace EmployeeUI
             // txtMName
             // 
             this.txtMName.BackColor = System.Drawing.SystemColors.Control;
-            this.txtMName.Location = new System.Drawing.Point(147, 178);
+            this.txtMName.Location = new System.Drawing.Point(151, 127);
             this.txtMName.Margin = new System.Windows.Forms.Padding(4);
             this.txtMName.Name = "txtMName";
             this.txtMName.Size = new System.Drawing.Size(164, 22);
@@ -181,7 +249,7 @@ namespace EmployeeUI
             // txtLName
             // 
             this.txtLName.BackColor = System.Drawing.SystemColors.Control;
-            this.txtLName.Location = new System.Drawing.Point(147, 129);
+            this.txtLName.Location = new System.Drawing.Point(151, 78);
             this.txtLName.Margin = new System.Windows.Forms.Padding(4);
             this.txtLName.Name = "txtLName";
             this.txtLName.Size = new System.Drawing.Size(164, 22);
@@ -190,26 +258,17 @@ namespace EmployeeUI
             // txtFName
             // 
             this.txtFName.BackColor = System.Drawing.SystemColors.Control;
-            this.txtFName.Location = new System.Drawing.Point(147, 80);
+            this.txtFName.Location = new System.Drawing.Point(151, 29);
             this.txtFName.Margin = new System.Windows.Forms.Padding(4);
             this.txtFName.Name = "txtFName";
             this.txtFName.Size = new System.Drawing.Size(164, 22);
             this.txtFName.TabIndex = 11;
             // 
-            // txtEmpID
-            // 
-            this.txtEmpID.BackColor = System.Drawing.SystemColors.Control;
-            this.txtEmpID.Location = new System.Drawing.Point(147, 24);
-            this.txtEmpID.Margin = new System.Windows.Forms.Padding(4);
-            this.txtEmpID.Name = "txtEmpID";
-            this.txtEmpID.Size = new System.Drawing.Size(165, 22);
-            this.txtEmpID.TabIndex = 9;
-            // 
             // lblPosition
             // 
             this.lblPosition.AutoSize = true;
             this.lblPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPosition.Location = new System.Drawing.Point(391, 84);
+            this.lblPosition.Location = new System.Drawing.Point(395, 33);
             this.lblPosition.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPosition.Name = "lblPosition";
             this.lblPosition.Size = new System.Drawing.Size(74, 20);
@@ -220,7 +279,7 @@ namespace EmployeeUI
             // 
             this.lblGender.AutoSize = true;
             this.lblGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGender.Location = new System.Drawing.Point(394, 133);
+            this.lblGender.Location = new System.Drawing.Point(400, 76);
             this.lblGender.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblGender.Name = "lblGender";
             this.lblGender.Size = new System.Drawing.Size(69, 20);
@@ -231,7 +290,7 @@ namespace EmployeeUI
             // 
             this.lblEmail.AutoSize = true;
             this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmail.Location = new System.Drawing.Point(409, 178);
+            this.lblEmail.Location = new System.Drawing.Point(413, 127);
             this.lblEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(56, 20);
@@ -242,7 +301,7 @@ namespace EmployeeUI
             // 
             this.lblPhoneNum.AutoSize = true;
             this.lblPhoneNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPhoneNum.Location = new System.Drawing.Point(335, 29);
+            this.lblPhoneNum.Location = new System.Drawing.Point(18, 223);
             this.lblPhoneNum.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPhoneNum.Name = "lblPhoneNum";
             this.lblPhoneNum.Size = new System.Drawing.Size(125, 20);
@@ -253,7 +312,7 @@ namespace EmployeeUI
             // 
             this.lblMName.AutoSize = true;
             this.lblMName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMName.Location = new System.Drawing.Point(16, 183);
+            this.lblMName.Location = new System.Drawing.Point(20, 132);
             this.lblMName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMName.Name = "lblMName";
             this.lblMName.Size = new System.Drawing.Size(112, 20);
@@ -264,29 +323,18 @@ namespace EmployeeUI
             // 
             this.lblLName.AutoSize = true;
             this.lblLName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLName.Location = new System.Drawing.Point(37, 134);
+            this.lblLName.Location = new System.Drawing.Point(41, 83);
             this.lblLName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLName.Name = "lblLName";
             this.lblLName.Size = new System.Drawing.Size(96, 20);
             this.lblLName.TabIndex = 3;
             this.lblLName.Text = "Last Name:";
             // 
-            // lblEmpID
-            // 
-            this.lblEmpID.AutoSize = true;
-            this.lblEmpID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmpID.Location = new System.Drawing.Point(20, 29);
-            this.lblEmpID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblEmpID.Name = "lblEmpID";
-            this.lblEmpID.Size = new System.Drawing.Size(109, 20);
-            this.lblEmpID.TabIndex = 2;
-            this.lblEmpID.Text = "Employee ID:";
-            // 
             // lblFName
             // 
             this.lblFName.AutoSize = true;
             this.lblFName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFName.Location = new System.Drawing.Point(37, 84);
+            this.lblFName.Location = new System.Drawing.Point(41, 33);
             this.lblFName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFName.Name = "lblFName";
             this.lblFName.Size = new System.Drawing.Size(97, 20);
@@ -342,16 +390,6 @@ namespace EmployeeUI
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // dtpDoB
-            // 
-            this.dtpDoB.CalendarMonthBackground = System.Drawing.SystemColors.Control;
-            this.dtpDoB.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDoB.Location = new System.Drawing.Point(147, 226);
-            this.dtpDoB.Name = "dtpDoB";
-            this.dtpDoB.Size = new System.Drawing.Size(165, 22);
-            this.dtpDoB.TabIndex = 19;
-            this.dtpDoB.Value = new System.DateTime(2024, 11, 17, 12, 30, 3, 0);
-            // 
             // AddEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -362,6 +400,7 @@ namespace EmployeeUI
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AddEmployee";
             this.Size = new System.Drawing.Size(928, 647);
+            this.Load += new System.EventHandler(this.AddEmployee_Load);
             this.pnlContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployee)).EndInit();
             this.pnlEmployeeDetails.ResumeLayout(false);
@@ -383,19 +422,21 @@ namespace EmployeeUI
         private System.Windows.Forms.TextBox txtMName;
         private System.Windows.Forms.TextBox txtLName;
         private System.Windows.Forms.TextBox txtFName;
-        private System.Windows.Forms.TextBox txtEmpID;
         private System.Windows.Forms.Label lblPosition;
         private System.Windows.Forms.Label lblGender;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label lblPhoneNum;
         private System.Windows.Forms.Label lblMName;
         private System.Windows.Forms.Label lblLName;
-        private System.Windows.Forms.Label lblEmpID;
         private System.Windows.Forms.Label lblFName;
         private System.Windows.Forms.Panel pnlEmpDetContainer;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Label lblDOB;
         private System.Windows.Forms.DateTimePicker dtpDoB;
+        private System.Windows.Forms.TextBox txtpassword;
+        private System.Windows.Forms.Label lblpassword;
+        private System.Windows.Forms.TextBox txtusername;
+        private System.Windows.Forms.Label lblusername;
     }
 }

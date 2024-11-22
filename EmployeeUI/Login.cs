@@ -76,20 +76,24 @@ namespace EmployeeUI
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            var auth = (from user in db.tblUserLogins
-                        where user.username == txtusername.Text
-                        select user).FirstOrDefault();
+            var auth = (from emp in db.EmployeeDetails
+                        join accounts in db.Accounts
+                        on emp.EmployeeID equals accounts.AccountID
+                        where accounts.Username == txtusername.Text
+                        select new { accounts.Username, accounts.Password, emp.Position }).FirstOrDefault();
 
-            if(auth != null && auth.password == txtpassword.Text)
+      
+
+            if(auth != null && auth.Password == txtpassword.Text)
             {
-                if (auth.role == "Manager")
+                if (auth.Position == "Manager")
                 {
-                    MessageBox.Show("Login Sucessful. Welcome Admin " + txtusername.Text, "Login");
+                    MessageBox.Show("Login Sucessful. Welcome Admin " + txtusername.Text.ToLower().ToUpper(), "Login");
                     Form1 f1 = new Form1();
                     f1.Show();
                     this.Hide();
                 }
-                else if(auth.role == "Junior Developer")
+                else
                 {
                     MessageBox.Show("Login Sucessful. Welcome " + txtusername.Text, "Login");
                     EmployeeInfo empinfo = new EmployeeInfo();
@@ -99,7 +103,7 @@ namespace EmployeeUI
             }
             else
             {
-                MessageBox.Show("Incorrect Credentials","Error");
+                MessageBox.Show("Incorrect Credentials.\n\n(Case Sensitive)","Error");
             }
         }
 

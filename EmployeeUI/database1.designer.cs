@@ -22,7 +22,7 @@ namespace EmployeeUI
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="EmployeeDetails")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="test5")]
 	public partial class database1DataContext : System.Data.Linq.DataContext
 	{
 		
@@ -30,13 +30,16 @@ namespace EmployeeUI
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InserttblAdminLogin(tblAdminLogin instance);
-    partial void UpdatetblAdminLogin(tblAdminLogin instance);
-    partial void DeletetblAdminLogin(tblAdminLogin instance);
+    partial void InsertEmployeeDetail(EmployeeDetail instance);
+    partial void UpdateEmployeeDetail(EmployeeDetail instance);
+    partial void DeleteEmployeeDetail(EmployeeDetail instance);
+    partial void InsertAccount(Account instance);
+    partial void UpdateAccount(Account instance);
+    partial void DeleteAccount(Account instance);
     #endregion
 		
 		public database1DataContext() : 
-				base(global::EmployeeUI.Properties.Settings.Default.EmployeeDetailsConnectionString, mappingSource)
+				base(global::EmployeeUI.Properties.Settings.Default.test5ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -65,165 +68,500 @@ namespace EmployeeUI
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<tblUserLogin> tblUserLogins
+		public System.Data.Linq.Table<EmployeeDetail> EmployeeDetails
 		{
 			get
 			{
-				return this.GetTable<tblUserLogin>();
+				return this.GetTable<EmployeeDetail>();
 			}
 		}
 		
-		public System.Data.Linq.Table<tblAdminLogin> tblAdminLogins
+		public System.Data.Linq.Table<Account> Accounts
 		{
 			get
 			{
-				return this.GetTable<tblAdminLogin>();
+				return this.GetTable<Account>();
 			}
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AddEmployeeAcc")]
+		public int AddEmployeeAcc([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Lastname", DbType="VarChar(30)")] string lastname, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Firstname", DbType="VarChar(30)")] string firstname, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Middlename", DbType="VarChar(30)")] string middlename, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DoB", DbType="Date")] System.Nullable<System.DateTime> doB, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PhoneNumber", DbType="VarChar(30)")] string phoneNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Gender", DbType="VarChar(30)")] string gender, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="VarChar(30)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Position", DbType="VarChar(30)")] string position, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Username", DbType="VarChar(30)")] string username, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Password", DbType="VarChar(30)")] string password)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), lastname, firstname, middlename, doB, phoneNumber, gender, email, position, username, password);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UpdateEmpInfo")]
+		public int UpdateEmpInfo([global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmployeeID", DbType="Int")] System.Nullable<int> employeeID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Lastname", DbType="VarChar(30)")] string lastname, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Firstname", DbType="VarChar(30)")] string firstname, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Middlename", DbType="VarChar(30)")] string middlename, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Position", DbType="VarChar(30)")] string position, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Status", DbType="VarChar(30)")] string status)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), employeeID, lastname, firstname, middlename, position, status);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.FireEmployee")]
+		public int FireEmployee([global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmployeeID", DbType="Int")] System.Nullable<int> employeeID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), employeeID);
+			return ((int)(result.ReturnValue));
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblUserLogin")]
-	public partial class tblUserLogin
-	{
-		
-		private System.Nullable<int> _employeeID;
-		
-		private string _username;
-		
-		private string _password;
-		
-		private string _role;
-		
-		public tblUserLogin()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_employeeID", DbType="Int")]
-		public System.Nullable<int> employeeID
-		{
-			get
-			{
-				return this._employeeID;
-			}
-			set
-			{
-				if ((this._employeeID != value))
-				{
-					this._employeeID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_username", DbType="VarChar(30)")]
-		public string username
-		{
-			get
-			{
-				return this._username;
-			}
-			set
-			{
-				if ((this._username != value))
-				{
-					this._username = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_password", DbType="VarChar(30)")]
-		public string password
-		{
-			get
-			{
-				return this._password;
-			}
-			set
-			{
-				if ((this._password != value))
-				{
-					this._password = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_role", DbType="VarChar(30)")]
-		public string role
-		{
-			get
-			{
-				return this._role;
-			}
-			set
-			{
-				if ((this._role != value))
-				{
-					this._role = value;
-				}
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblAdminLogin")]
-	public partial class tblAdminLogin : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.EmployeeDetail")]
+	public partial class EmployeeDetail : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _adminID;
+		private int _EmployeeID;
 		
-		private System.Nullable<int> _employeeID;
+		private string _Lastname;
+		
+		private string _Firstname;
+		
+		private string _Middlename;
+		
+		private System.DateTime _DoB;
+		
+		private string _PhoneNumber;
+		
+		private string _Gender;
+		
+		private string _Email;
+		
+		private string _Position;
+		
+		private string _Status;
+		
+		private EntitySet<Account> _Accounts;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnadminIDChanging(int value);
-    partial void OnadminIDChanged();
-    partial void OnemployeeIDChanging(System.Nullable<int> value);
-    partial void OnemployeeIDChanged();
+    partial void OnEmployeeIDChanging(int value);
+    partial void OnEmployeeIDChanged();
+    partial void OnLastnameChanging(string value);
+    partial void OnLastnameChanged();
+    partial void OnFirstnameChanging(string value);
+    partial void OnFirstnameChanged();
+    partial void OnMiddlenameChanging(string value);
+    partial void OnMiddlenameChanged();
+    partial void OnDoBChanging(System.DateTime value);
+    partial void OnDoBChanged();
+    partial void OnPhoneNumberChanging(string value);
+    partial void OnPhoneNumberChanged();
+    partial void OnGenderChanging(string value);
+    partial void OnGenderChanged();
+    partial void OnEmailChanging(string value);
+    partial void OnEmailChanged();
+    partial void OnPositionChanging(string value);
+    partial void OnPositionChanged();
+    partial void OnStatusChanging(string value);
+    partial void OnStatusChanged();
     #endregion
 		
-		public tblAdminLogin()
+		public EmployeeDetail()
 		{
+			this._Accounts = new EntitySet<Account>(new Action<Account>(this.attach_Accounts), new Action<Account>(this.detach_Accounts));
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_adminID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int adminID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int EmployeeID
 		{
 			get
 			{
-				return this._adminID;
+				return this._EmployeeID;
 			}
 			set
 			{
-				if ((this._adminID != value))
+				if ((this._EmployeeID != value))
 				{
-					this.OnadminIDChanging(value);
+					this.OnEmployeeIDChanging(value);
 					this.SendPropertyChanging();
-					this._adminID = value;
-					this.SendPropertyChanged("adminID");
-					this.OnadminIDChanged();
+					this._EmployeeID = value;
+					this.SendPropertyChanged("EmployeeID");
+					this.OnEmployeeIDChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_employeeID", DbType="Int")]
-		public System.Nullable<int> employeeID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Lastname", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string Lastname
 		{
 			get
 			{
-				return this._employeeID;
+				return this._Lastname;
 			}
 			set
 			{
-				if ((this._employeeID != value))
+				if ((this._Lastname != value))
 				{
-					this.OnemployeeIDChanging(value);
+					this.OnLastnameChanging(value);
 					this.SendPropertyChanging();
-					this._employeeID = value;
-					this.SendPropertyChanged("employeeID");
-					this.OnemployeeIDChanged();
+					this._Lastname = value;
+					this.SendPropertyChanged("Lastname");
+					this.OnLastnameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Firstname", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string Firstname
+		{
+			get
+			{
+				return this._Firstname;
+			}
+			set
+			{
+				if ((this._Firstname != value))
+				{
+					this.OnFirstnameChanging(value);
+					this.SendPropertyChanging();
+					this._Firstname = value;
+					this.SendPropertyChanged("Firstname");
+					this.OnFirstnameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Middlename", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string Middlename
+		{
+			get
+			{
+				return this._Middlename;
+			}
+			set
+			{
+				if ((this._Middlename != value))
+				{
+					this.OnMiddlenameChanging(value);
+					this.SendPropertyChanging();
+					this._Middlename = value;
+					this.SendPropertyChanged("Middlename");
+					this.OnMiddlenameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DoB", DbType="Date NOT NULL")]
+		public System.DateTime DoB
+		{
+			get
+			{
+				return this._DoB;
+			}
+			set
+			{
+				if ((this._DoB != value))
+				{
+					this.OnDoBChanging(value);
+					this.SendPropertyChanging();
+					this._DoB = value;
+					this.SendPropertyChanged("DoB");
+					this.OnDoBChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PhoneNumber", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string PhoneNumber
+		{
+			get
+			{
+				return this._PhoneNumber;
+			}
+			set
+			{
+				if ((this._PhoneNumber != value))
+				{
+					this.OnPhoneNumberChanging(value);
+					this.SendPropertyChanging();
+					this._PhoneNumber = value;
+					this.SendPropertyChanged("PhoneNumber");
+					this.OnPhoneNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Gender", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string Gender
+		{
+			get
+			{
+				return this._Gender;
+			}
+			set
+			{
+				if ((this._Gender != value))
+				{
+					this.OnGenderChanging(value);
+					this.SendPropertyChanging();
+					this._Gender = value;
+					this.SendPropertyChanged("Gender");
+					this.OnGenderChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this.OnEmailChanging(value);
+					this.SendPropertyChanging();
+					this._Email = value;
+					this.SendPropertyChanged("Email");
+					this.OnEmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Position", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string Position
+		{
+			get
+			{
+				return this._Position;
+			}
+			set
+			{
+				if ((this._Position != value))
+				{
+					this.OnPositionChanging(value);
+					this.SendPropertyChanging();
+					this._Position = value;
+					this.SendPropertyChanged("Position");
+					this.OnPositionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="VarChar(30)")]
+		public string Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this.OnStatusChanging(value);
+					this.SendPropertyChanging();
+					this._Status = value;
+					this.SendPropertyChanged("Status");
+					this.OnStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EmployeeDetail_Account", Storage="_Accounts", ThisKey="EmployeeID", OtherKey="EmployeeID")]
+		public EntitySet<Account> Accounts
+		{
+			get
+			{
+				return this._Accounts;
+			}
+			set
+			{
+				this._Accounts.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Accounts(Account entity)
+		{
+			this.SendPropertyChanging();
+			entity.EmployeeDetail = this;
+		}
+		
+		private void detach_Accounts(Account entity)
+		{
+			this.SendPropertyChanging();
+			entity.EmployeeDetail = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Account")]
+	public partial class Account : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _AccountID;
+		
+		private string _Username;
+		
+		private string _Password;
+		
+		private System.Nullable<int> _EmployeeID;
+		
+		private EntityRef<EmployeeDetail> _EmployeeDetail;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnAccountIDChanging(int value);
+    partial void OnAccountIDChanged();
+    partial void OnUsernameChanging(string value);
+    partial void OnUsernameChanged();
+    partial void OnPasswordChanging(string value);
+    partial void OnPasswordChanged();
+    partial void OnEmployeeIDChanging(System.Nullable<int> value);
+    partial void OnEmployeeIDChanged();
+    #endregion
+		
+		public Account()
+		{
+			this._EmployeeDetail = default(EntityRef<EmployeeDetail>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AccountID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int AccountID
+		{
+			get
+			{
+				return this._AccountID;
+			}
+			set
+			{
+				if ((this._AccountID != value))
+				{
+					this.OnAccountIDChanging(value);
+					this.SendPropertyChanging();
+					this._AccountID = value;
+					this.SendPropertyChanged("AccountID");
+					this.OnAccountIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Username", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string Username
+		{
+			get
+			{
+				return this._Username;
+			}
+			set
+			{
+				if ((this._Username != value))
+				{
+					this.OnUsernameChanging(value);
+					this.SendPropertyChanging();
+					this._Username = value;
+					this.SendPropertyChanged("Username");
+					this.OnUsernameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string Password
+		{
+			get
+			{
+				return this._Password;
+			}
+			set
+			{
+				if ((this._Password != value))
+				{
+					this.OnPasswordChanging(value);
+					this.SendPropertyChanging();
+					this._Password = value;
+					this.SendPropertyChanged("Password");
+					this.OnPasswordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeID", DbType="Int")]
+		public System.Nullable<int> EmployeeID
+		{
+			get
+			{
+				return this._EmployeeID;
+			}
+			set
+			{
+				if ((this._EmployeeID != value))
+				{
+					if (this._EmployeeDetail.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnEmployeeIDChanging(value);
+					this.SendPropertyChanging();
+					this._EmployeeID = value;
+					this.SendPropertyChanged("EmployeeID");
+					this.OnEmployeeIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EmployeeDetail_Account", Storage="_EmployeeDetail", ThisKey="EmployeeID", OtherKey="EmployeeID", IsForeignKey=true)]
+		public EmployeeDetail EmployeeDetail
+		{
+			get
+			{
+				return this._EmployeeDetail.Entity;
+			}
+			set
+			{
+				EmployeeDetail previousValue = this._EmployeeDetail.Entity;
+				if (((previousValue != value) 
+							|| (this._EmployeeDetail.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._EmployeeDetail.Entity = null;
+						previousValue.Accounts.Remove(this);
+					}
+					this._EmployeeDetail.Entity = value;
+					if ((value != null))
+					{
+						value.Accounts.Add(this);
+						this._EmployeeID = value.EmployeeID;
+					}
+					else
+					{
+						this._EmployeeID = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("EmployeeDetail");
 				}
 			}
 		}

@@ -12,6 +12,8 @@ namespace EmployeeUI
 {
     public partial class Form1 : Form
     {
+        public Edit EmployeeListControl { get; set; }
+        public AddEmployee AddEmp { get; set; }
         public Form1()
         {
             InitializeComponent();
