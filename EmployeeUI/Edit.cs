@@ -12,111 +12,100 @@ namespace EmployeeUI
 {
     public partial class Edit : UserControl
     {
+        //Declare variable/s
+        //declare database
+        database1DataContext db = new database1DataContext();
         public Edit()
         {
             InitializeComponent();
+            //Matik load the DGV kung naay sulod
             LoadEmployeeData();
         }
 
         public void ReloadEmployeeData()
         {
+            //Reloaf dgv kung nay changes
             LoadEmployeeData(); 
         }
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            //Confirmation, sure najud nga i putbol?
             DialogResult check = new DialogResult();
-
             check = MessageBox.Show("Are you sure you want to update employee detail?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (check == DialogResult.Yes)
             {
-                using (database1DataContext db = new database1DataContext())
-                {
-                    db.UpdateEmpInfo
-                    (
-                       int.Parse(txtEmpID.Text),
-                       txtLName.Text,
-                       txtFName.Text,
-                       txtMName.Text,
-                       cboPosition.Text,
-                       cboStatus.Text
+                //If yes, mausab ang records nga gi enter sa admin    
+                db.UpdateEmpInfo
+                (
+                    //new data nga gi enter sa admin
+                    int.Parse(txtEmpID.Text),
+                    txtLName.Text,
+                    txtFName.Text,
+                    txtMName.Text,
+                    cboPosition.Text,
+                    cboStatus.Text
 
-                    );
-                    LoadEmployeeData();
-                }
-               
+                );
+                //Reload ang DGV and ma save ang changes
+                LoadEmployeeData();         
                 MessageBox.Show("Employee Detail Updated" , "Successful");
             }
         }
 
         private void btnFire_Click(object sender, EventArgs e)
-        {                    
-            using(database1DataContext db = new database1DataContext())
+        {                                
+            //Get the employeeID based sa clicked cell
+            if (int.TryParse(txtEmpID.Text, out int employeeID))
             {
-                // Get the employee by their ID (from the populated textbox)
-                if (int.TryParse(txtEmpID.Text, out int employeeID))
+                try
                 {
-                    // Find the employee and related account
-                    var employeeToDelete = db.EmployeeDetails.SingleOrDefault(emp => emp.EmployeeID == employeeID);
-                    var accountToDelete = db.Accounts.SingleOrDefault(acc => acc.EmployeeID == employeeID);
+                    //Bye bye employee then reseed ang identity based kung pila ang last identity
+                    db.FireEmployees(employeeID);
 
-                    if (employeeToDelete != null && accountToDelete != null)
-                    {
-                        // Remove the account first (because of the foreign key constraint)
-                        db.Accounts.DeleteOnSubmit(accountToDelete);
+                    MessageBox.Show("Employee and account removed successfully!");
 
-                        // Remove the employee
-                        db.EmployeeDetails.DeleteOnSubmit(employeeToDelete);
+                    //Reload changes sa DGV
+                    LoadEmployeeData();
 
-                        // Commit the changes to the database
-                        db.SubmitChanges();
-
-                        MessageBox.Show("Employee and account removed successfully!");
-
-                        // Optionally reload the DataGridView to reflect changes
-                        LoadEmployeeData();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Employee not found!");
-                    }
+                    //reload ang dgv nga naa sa lain nga UserControl
+                    Form1 parentForm = (Form1)this.ParentForm;
+                    parentForm.AddEmp.ReloadEmployeeData(); 
                 }
-                else
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Invalid Employee ID!");
+                    //Comment hahah
+                    MessageBox.Show("Error while deleting employee: " + ex.Message);
                 }
             }
-
-            Form1 parentForm = (Form1)this.ParentForm; // Access the main form
-            parentForm.AddEmp.ReloadEmployeeData(); // Reload the DGV
+            else
+            {
+                //Comment nasad hahaha
+                MessageBox.Show("Invalid Employee ID!");
+            }
         }
         
         private void LoadEmployeeData()
         {
-            using (database1DataContext db = new database1DataContext())
-            {
-                // Fetch the employee and account data by joining the tables using LINQ
-                var employees = from e in db.EmployeeDetails
-                                join a in db.Accounts on e.EmployeeID equals a.EmployeeID
-                                select new
-                                {
-                                    e.EmployeeID,
-                                    e.Lastname,
-                                    e.Firstname,
-                                    e.Middlename,
-                                    e.Position,
-                                    e.Status
-                                };
+            // Fetch the employee and account data by joining the tables using LINQ
+            var employees = from e in db.EmployeeDetails
+                            join a in db.Accounts on e.EmployeeID equals a.EmployeeID
+                            select new
+                            {
+                                e.EmployeeID,
+                                e.Lastname,
+                                e.Firstname,
+                                e.Middlename,
+                                e.Position,
+                                e.Status
+                            };
 
-                //Bind the query result to the DataGridView
-                dgvEmployees.DataSource = employees.ToList();
-
-
-            }
+            //Show the result into the DGV
+            dgvEmployees.DataSource = employees.ToList();      
         }
 
         private void dgvEmployees_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-        
+            //Show the employee details in the textboxes if a cell is clicked
             if (e.RowIndex != -1)
             {
                 DataGridViewRow row = dgvEmployees.Rows[e.RowIndex];
@@ -132,13 +121,19 @@ namespace EmployeeUI
 
         private void Edit_Load(object sender, EventArgs e)
         {
-            
-                // Ensure the reference to the parent form is set when the control loads
+                
+                //Reference sa parent form para ma load ang DGV 
                 if (this.ParentForm is Form1 parentForm)
                 {
-                    parentForm.EmployeeListControl = this; // Set the UserControl reference in the parent form
+                    parentForm.EmployeeListControl = this;
                 }
             
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            //Refresh, ambot ngano need pani. Chuy2 lang gud
+            LoadEmployeeData();
         }
     }
 }

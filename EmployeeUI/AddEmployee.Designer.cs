@@ -29,8 +29,9 @@ namespace EmployeeUI
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlContainer = new System.Windows.Forms.Panel();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.dgvEmployee = new System.Windows.Forms.DataGridView();
             this.pnlEmployeeDetails = new System.Windows.Forms.Panel();
             this.txtusername = new System.Windows.Forms.TextBox();
@@ -66,6 +67,7 @@ namespace EmployeeUI
             // 
             this.pnlContainer.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.pnlContainer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlContainer.Controls.Add(this.btnRefresh);
             this.pnlContainer.Controls.Add(this.dgvEmployee);
             this.pnlContainer.Location = new System.Drawing.Point(25, 26);
             this.pnlContainer.Margin = new System.Windows.Forms.Padding(4);
@@ -73,18 +75,36 @@ namespace EmployeeUI
             this.pnlContainer.Size = new System.Drawing.Size(875, 251);
             this.pnlContainer.TabIndex = 0;
             // 
+            // btnRefresh
+            // 
+            this.btnRefresh.BackColor = System.Drawing.Color.Navy;
+            this.btnRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRefresh.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnRefresh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefresh.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnRefresh.Location = new System.Drawing.Point(728, 10);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(120, 34);
+            this.btnRefresh.TabIndex = 13;
+            this.btnRefresh.Text = "REFRESH";
+            this.btnRefresh.UseVisualStyleBackColor = false;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
             // dgvEmployee
             // 
             this.dgvEmployee.AllowUserToAddRows = false;
             this.dgvEmployee.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Navy;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvEmployee.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Navy;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvEmployee.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEmployee.EnableHeadersVisualStyles = false;
             this.dgvEmployee.Location = new System.Drawing.Point(21, 55);
@@ -128,17 +148,17 @@ namespace EmployeeUI
             // txtusername
             // 
             this.txtusername.BackColor = System.Drawing.SystemColors.Control;
-            this.txtusername.Location = new System.Drawing.Point(477, 219);
+            this.txtusername.Location = new System.Drawing.Point(477, 177);
             this.txtusername.Margin = new System.Windows.Forms.Padding(4);
             this.txtusername.Name = "txtusername";
             this.txtusername.Size = new System.Drawing.Size(164, 22);
-            this.txtusername.TabIndex = 23;
+            this.txtusername.TabIndex = 9;
             // 
             // lblusername
             // 
             this.lblusername.AutoSize = true;
             this.lblusername.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblusername.Location = new System.Drawing.Point(380, 219);
+            this.lblusername.Location = new System.Drawing.Point(380, 177);
             this.lblusername.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblusername.Name = "lblusername";
             this.lblusername.Size = new System.Drawing.Size(91, 20);
@@ -148,22 +168,24 @@ namespace EmployeeUI
             // txtpassword
             // 
             this.txtpassword.BackColor = System.Drawing.SystemColors.Control;
-            this.txtpassword.Location = new System.Drawing.Point(477, 173);
+            this.txtpassword.Location = new System.Drawing.Point(477, 220);
             this.txtpassword.Margin = new System.Windows.Forms.Padding(4);
             this.txtpassword.Name = "txtpassword";
             this.txtpassword.Size = new System.Drawing.Size(164, 22);
-            this.txtpassword.TabIndex = 21;
+            this.txtpassword.TabIndex = 10;
+            this.txtpassword.TextChanged += new System.EventHandler(this.txtpassword_TextChanged);
             // 
             // lblpassword
             // 
             this.lblpassword.AutoSize = true;
             this.lblpassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblpassword.Location = new System.Drawing.Point(383, 173);
+            this.lblpassword.Location = new System.Drawing.Point(383, 220);
             this.lblpassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblpassword.Name = "lblpassword";
             this.lblpassword.Size = new System.Drawing.Size(88, 20);
             this.lblpassword.TabIndex = 20;
             this.lblpassword.Text = "Password:";
+            this.lblpassword.Click += new System.EventHandler(this.lblpassword_Click);
             // 
             // dtpDoB
             // 
@@ -172,7 +194,7 @@ namespace EmployeeUI
             this.dtpDoB.Location = new System.Drawing.Point(151, 175);
             this.dtpDoB.Name = "dtpDoB";
             this.dtpDoB.Size = new System.Drawing.Size(165, 22);
-            this.dtpDoB.TabIndex = 19;
+            this.dtpDoB.TabIndex = 4;
             this.dtpDoB.Value = new System.DateTime(2024, 11, 17, 12, 30, 3, 0);
             // 
             // lblDOB
@@ -201,7 +223,7 @@ namespace EmployeeUI
             this.cboPosition.Margin = new System.Windows.Forms.Padding(4);
             this.cboPosition.Name = "cboPosition";
             this.cboPosition.Size = new System.Drawing.Size(164, 24);
-            this.cboPosition.TabIndex = 17;
+            this.cboPosition.TabIndex = 6;
             // 
             // txtPhoneNum
             // 
@@ -210,7 +232,7 @@ namespace EmployeeUI
             this.txtPhoneNum.Margin = new System.Windows.Forms.Padding(4);
             this.txtPhoneNum.Name = "txtPhoneNum";
             this.txtPhoneNum.Size = new System.Drawing.Size(164, 22);
-            this.txtPhoneNum.TabIndex = 16;
+            this.txtPhoneNum.TabIndex = 5;
             // 
             // txtEmail
             // 
@@ -219,7 +241,7 @@ namespace EmployeeUI
             this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(164, 22);
-            this.txtEmail.TabIndex = 15;
+            this.txtEmail.TabIndex = 8;
             // 
             // cboGender
             // 
@@ -235,7 +257,7 @@ namespace EmployeeUI
             this.cboGender.Margin = new System.Windows.Forms.Padding(4);
             this.cboGender.Name = "cboGender";
             this.cboGender.Size = new System.Drawing.Size(164, 24);
-            this.cboGender.TabIndex = 14;
+            this.cboGender.TabIndex = 7;
             // 
             // txtMName
             // 
@@ -244,25 +266,25 @@ namespace EmployeeUI
             this.txtMName.Margin = new System.Windows.Forms.Padding(4);
             this.txtMName.Name = "txtMName";
             this.txtMName.Size = new System.Drawing.Size(164, 22);
-            this.txtMName.TabIndex = 13;
+            this.txtMName.TabIndex = 3;
             // 
             // txtLName
             // 
             this.txtLName.BackColor = System.Drawing.SystemColors.Control;
-            this.txtLName.Location = new System.Drawing.Point(151, 78);
+            this.txtLName.Location = new System.Drawing.Point(152, 29);
             this.txtLName.Margin = new System.Windows.Forms.Padding(4);
             this.txtLName.Name = "txtLName";
             this.txtLName.Size = new System.Drawing.Size(164, 22);
-            this.txtLName.TabIndex = 12;
+            this.txtLName.TabIndex = 1;
             // 
             // txtFName
             // 
             this.txtFName.BackColor = System.Drawing.SystemColors.Control;
-            this.txtFName.Location = new System.Drawing.Point(151, 29);
+            this.txtFName.Location = new System.Drawing.Point(152, 76);
             this.txtFName.Margin = new System.Windows.Forms.Padding(4);
             this.txtFName.Name = "txtFName";
             this.txtFName.Size = new System.Drawing.Size(164, 22);
-            this.txtFName.TabIndex = 11;
+            this.txtFName.TabIndex = 2;
             // 
             // lblPosition
             // 
@@ -323,7 +345,7 @@ namespace EmployeeUI
             // 
             this.lblLName.AutoSize = true;
             this.lblLName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLName.Location = new System.Drawing.Point(41, 83);
+            this.lblLName.Location = new System.Drawing.Point(42, 34);
             this.lblLName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLName.Name = "lblLName";
             this.lblLName.Size = new System.Drawing.Size(96, 20);
@@ -334,7 +356,7 @@ namespace EmployeeUI
             // 
             this.lblFName.AutoSize = true;
             this.lblFName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFName.Location = new System.Drawing.Point(41, 33);
+            this.lblFName.Location = new System.Drawing.Point(42, 80);
             this.lblFName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFName.Name = "lblFName";
             this.lblFName.Size = new System.Drawing.Size(97, 20);
@@ -367,10 +389,10 @@ namespace EmployeeUI
             this.btnClear.Margin = new System.Windows.Forms.Padding(4);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(139, 43);
-            this.btnClear.TabIndex = 20;
+            this.btnClear.TabIndex = 12;
             this.btnClear.Text = "CLEAR";
             this.btnClear.UseVisualStyleBackColor = false;
-            this.btnClear.Click += new System.EventHandler(this.button2_Click);
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnAdd
             // 
@@ -385,7 +407,7 @@ namespace EmployeeUI
             this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(139, 43);
-            this.btnAdd.TabIndex = 18;
+            this.btnAdd.TabIndex = 11;
             this.btnAdd.Text = "ADD";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -438,5 +460,6 @@ namespace EmployeeUI
         private System.Windows.Forms.Label lblpassword;
         private System.Windows.Forms.TextBox txtusername;
         private System.Windows.Forms.Label lblusername;
+        private System.Windows.Forms.Button btnRefresh;
     }
 }

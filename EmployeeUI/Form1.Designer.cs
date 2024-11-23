@@ -32,7 +32,7 @@ namespace EmployeeUI
             this.pnlOptions = new System.Windows.Forms.Panel();
             this.picSignout = new System.Windows.Forms.PictureBox();
             this.lblSignOut = new System.Windows.Forms.Label();
-            this.btnSearch = new System.Windows.Forms.Button();
+            this.btnManage = new System.Windows.Forms.Button();
             this.btnAddEmployee = new System.Windows.Forms.Button();
             this.btnDashboard = new System.Windows.Forms.Button();
             this.pnlName = new System.Windows.Forms.Panel();
@@ -54,12 +54,12 @@ namespace EmployeeUI
             this.pnlOptions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.pnlOptions.Controls.Add(this.picSignout);
             this.pnlOptions.Controls.Add(this.lblSignOut);
-            this.pnlOptions.Controls.Add(this.btnSearch);
+            this.pnlOptions.Controls.Add(this.btnManage);
             this.pnlOptions.Controls.Add(this.btnAddEmployee);
             this.pnlOptions.Controls.Add(this.btnDashboard);
             this.pnlOptions.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlOptions.Location = new System.Drawing.Point(0, 0);
-            this.pnlOptions.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlOptions.Margin = new System.Windows.Forms.Padding(4);
             this.pnlOptions.Name = "pnlOptions";
             this.pnlOptions.Size = new System.Drawing.Size(256, 695);
             this.pnlOptions.TabIndex = 0;
@@ -70,7 +70,7 @@ namespace EmployeeUI
             this.picSignout.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picSignout.Image = global::EmployeeUI.Properties.Resources.icons8_logout_24;
             this.picSignout.Location = new System.Drawing.Point(48, 623);
-            this.picSignout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.picSignout.Margin = new System.Windows.Forms.Padding(4);
             this.picSignout.Name = "picSignout";
             this.picSignout.Size = new System.Drawing.Size(36, 34);
             this.picSignout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -94,23 +94,23 @@ namespace EmployeeUI
             this.lblSignOut.MouseEnter += new System.EventHandler(this.lblSignOut_MouseEnter);
             this.lblSignOut.MouseLeave += new System.EventHandler(this.lblSignOut_MouseLeave);
             // 
-            // btnSearch
+            // btnManage
             // 
-            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSearch.FlatAppearance.BorderSize = 0;
-            this.btnSearch.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnSearch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnSearch.Location = new System.Drawing.Point(0, 302);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(256, 83);
-            this.btnSearch.TabIndex = 2;
-            this.btnSearch.Text = "Search and Edit";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            this.btnManage.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnManage.FlatAppearance.BorderSize = 0;
+            this.btnManage.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnManage.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnManage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnManage.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnManage.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnManage.Location = new System.Drawing.Point(0, 302);
+            this.btnManage.Margin = new System.Windows.Forms.Padding(4);
+            this.btnManage.Name = "btnManage";
+            this.btnManage.Size = new System.Drawing.Size(256, 83);
+            this.btnManage.TabIndex = 2;
+            this.btnManage.Text = "Manage Employee";
+            this.btnManage.UseVisualStyleBackColor = true;
+            this.btnManage.Click += new System.EventHandler(this.btnManage_Click);
             // 
             // btnAddEmployee
             // 
@@ -123,7 +123,7 @@ namespace EmployeeUI
             this.btnAddEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddEmployee.ForeColor = System.Drawing.SystemColors.Control;
             this.btnAddEmployee.Location = new System.Drawing.Point(0, 220);
-            this.btnAddEmployee.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddEmployee.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddEmployee.Name = "btnAddEmployee";
             this.btnAddEmployee.Size = new System.Drawing.Size(256, 83);
             this.btnAddEmployee.TabIndex = 1;
@@ -143,7 +143,7 @@ namespace EmployeeUI
             this.btnDashboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDashboard.ForeColor = System.Drawing.SystemColors.Control;
             this.btnDashboard.Location = new System.Drawing.Point(0, 139);
-            this.btnDashboard.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDashboard.Margin = new System.Windows.Forms.Padding(4);
             this.btnDashboard.Name = "btnDashboard";
             this.btnDashboard.Size = new System.Drawing.Size(256, 83);
             this.btnDashboard.TabIndex = 0;
@@ -158,7 +158,7 @@ namespace EmployeeUI
             this.pnlName.Controls.Add(this.lblEmployeeManagement);
             this.pnlName.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlName.Location = new System.Drawing.Point(256, 0);
-            this.pnlName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlName.Margin = new System.Windows.Forms.Padding(4);
             this.pnlName.Name = "pnlName";
             this.pnlName.Size = new System.Drawing.Size(928, 48);
             this.pnlName.TabIndex = 1;
@@ -168,7 +168,7 @@ namespace EmployeeUI
             this.picClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picClose.Image = global::EmployeeUI.Properties.Resources.icons8_close_50;
             this.picClose.Location = new System.Drawing.Point(884, 11);
-            this.picClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.picClose.Margin = new System.Windows.Forms.Padding(4);
             this.picClose.Name = "picClose";
             this.picClose.Size = new System.Drawing.Size(32, 25);
             this.picClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -195,7 +195,7 @@ namespace EmployeeUI
             this.panelContainer.Controls.Add(this.edit1);
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContainer.Location = new System.Drawing.Point(256, 48);
-            this.panelContainer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelContainer.Margin = new System.Windows.Forms.Padding(4);
             this.panelContainer.Name = "panelContainer";
             this.panelContainer.Size = new System.Drawing.Size(928, 647);
             this.panelContainer.TabIndex = 5;
@@ -234,7 +234,7 @@ namespace EmployeeUI
             this.Controls.Add(this.panelContainer);
             this.Controls.Add(this.pnlName);
             this.Controls.Add(this.pnlOptions);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
@@ -254,7 +254,7 @@ namespace EmployeeUI
         private System.Windows.Forms.Panel pnlOptions;
         private System.Windows.Forms.Panel pnlName;
         private System.Windows.Forms.Label lblEmployeeManagement;
-        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Button btnManage;
         private System.Windows.Forms.Button btnAddEmployee;
         private System.Windows.Forms.Button btnDashboard;
         private System.Windows.Forms.Panel panelContainer;

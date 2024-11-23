@@ -16,7 +16,7 @@ namespace EmployeeUI
     public partial class Login : Form
     {
         //var dec
-        Login login;
+        
         database1DataContext db = new database1DataContext();
         bool isPasswordVisible = false;
      
@@ -38,10 +38,11 @@ namespace EmployeeUI
 
             if (isPasswordVisible)
             {
+                //show password
                 txtpassword.UseSystemPasswordChar = false;
                
             }
-            // Otherwise, hide the password characters
+            //hide password
             else
             {
                 txtpassword.UseSystemPasswordChar = true;
@@ -76,38 +77,43 @@ namespace EmployeeUI
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            //LINQ to get the necessary credentials sa employee nga mo log in
             var auth = (from emp in db.EmployeeDetails
                         join accounts in db.Accounts
-                        on emp.EmployeeID equals accounts.AccountID
+                        on emp.EmployeeID equals accounts.EmployeeID
                         where accounts.Username == txtusername.Text
-                        select new { accounts.Username, accounts.Password, emp.Position }).FirstOrDefault();
+                        select new { accounts.Username, accounts.Password, emp.Position, emp.EmployeeID }).FirstOrDefault();
 
-      
 
-            if(auth != null && auth.Password == txtpassword.Text)
+            //authenticate if sakto ba 
+            if (auth != null && auth.Password == txtpassword.Text)
             {
+                //if position kay manager, show admin UI
                 if (auth.Position == "Manager")
                 {
-                    MessageBox.Show("Login Sucessful. Welcome Admin " + txtusername.Text.ToLower().ToUpper(), "Login");
-                    Form1 f1 = new Form1();
+                    MessageBox.Show("Login Successful. Welcome Admin " + txtusername.Text.ToLower().ToUpper(), "Login");
+                    //set the employee's ID 
+                    Form1 f1 = new Form1(auth.EmployeeID);
                     f1.Show();
                     this.Hide();
                 }
-                else
+                else //show employeeinfo ui
                 {
-                    MessageBox.Show("Login Sucessful. Welcome " + txtusername.Text, "Login");
-                    EmployeeInfo empinfo = new EmployeeInfo();
+                    MessageBox.Show("Login Successful. Welcome " + txtusername.Text, "Login");
+                    //set the employee's ID
+                    EmployeeInfo empinfo = new EmployeeInfo(auth.EmployeeID);
                     empinfo.Show();
                     this.Hide();
                 }
             }
             else
             {
-                MessageBox.Show("Incorrect Credentials.\n\n(Case Sensitive)","Error");
+                MessageBox.Show("Incorrect Credentials.\n\n(Case Sensitive)", "Error");
             }
+
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void pnlSideWall_Paint(object sender, PaintEventArgs e)
         {
             base.OnPaint(e);
 
@@ -133,12 +139,7 @@ namespace EmployeeUI
             }
         }
 
-        private void picWall_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void picWall_Paint(object sender, PaintEventArgs e)
+            private void picWall_Paint(object sender, PaintEventArgs e)
         {
             base.OnPaint(e);
 
@@ -162,6 +163,11 @@ namespace EmployeeUI
             {
                 e.Graphics.FillRectangle(solidBrush, new Rectangle(0, panelHeight / 2, panelWidth, panelHeight / 2));
             }
+        }
+
+        private void picClose_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }

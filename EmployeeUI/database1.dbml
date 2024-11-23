@@ -46,8 +46,30 @@
     <Parameter Name="Status" Parameter="status" Type="System.String" DbType="VarChar(30)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.FireEmployee" Method="FireEmployee">
+  <Function Name="dbo.FireEmployees" Method="FireEmployees">
     <Parameter Name="EmployeeID" Parameter="employeeID" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ShowEmployeeName" Method="ShowEmployeeName">
+    <Parameter Name="employeeID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Lastname" Parameter="lastname" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="Firstname" Parameter="firstname" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="Middlename" Parameter="middlename" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="Position" Parameter="position" Type="System.String" DbType="VarChar(30)" />
+    <ElementType Name="ShowEmployeeNameResult">
+      <Column Name="Firstname" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Lastname" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Middlename" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Position" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ShowEmployeeNames" Method="ShowEmployeeNames">
+    <Parameter Name="employeeID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="ShowEmployeeNamesResult">
+      <Column Name="Firstname" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Lastname" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Middlename" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Position" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+    </ElementType>
   </Function>
 </Database>

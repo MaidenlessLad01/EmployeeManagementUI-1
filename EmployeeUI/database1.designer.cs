@@ -98,11 +98,25 @@ namespace EmployeeUI
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.FireEmployee")]
-		public int FireEmployee([global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmployeeID", DbType="Int")] System.Nullable<int> employeeID)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.FireEmployees")]
+		public int FireEmployees([global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmployeeID", DbType="Int")] System.Nullable<int> employeeID)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), employeeID);
 			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ShowEmployeeName")]
+		public ISingleResult<ShowEmployeeNameResult> ShowEmployeeName([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> employeeID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Lastname", DbType="VarChar(30)")] string lastname, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Firstname", DbType="VarChar(30)")] string firstname, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Middlename", DbType="VarChar(30)")] string middlename, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Position", DbType="VarChar(30)")] string position)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), employeeID, lastname, firstname, middlename, position);
+			return ((ISingleResult<ShowEmployeeNameResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ShowEmployeeNames")]
+		public ISingleResult<ShowEmployeeNamesResult> ShowEmployeeNames([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> employeeID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), employeeID);
+			return ((ISingleResult<ShowEmployeeNamesResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -583,6 +597,166 @@ namespace EmployeeUI
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	public partial class ShowEmployeeNameResult
+	{
+		
+		private string _Firstname;
+		
+		private string _Lastname;
+		
+		private string _Middlename;
+		
+		private string _Position;
+		
+		public ShowEmployeeNameResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Firstname", DbType="VarChar(30)")]
+		public string Firstname
+		{
+			get
+			{
+				return this._Firstname;
+			}
+			set
+			{
+				if ((this._Firstname != value))
+				{
+					this._Firstname = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Lastname", DbType="VarChar(30)")]
+		public string Lastname
+		{
+			get
+			{
+				return this._Lastname;
+			}
+			set
+			{
+				if ((this._Lastname != value))
+				{
+					this._Lastname = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Middlename", DbType="VarChar(30)")]
+		public string Middlename
+		{
+			get
+			{
+				return this._Middlename;
+			}
+			set
+			{
+				if ((this._Middlename != value))
+				{
+					this._Middlename = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Position", DbType="VarChar(30)")]
+		public string Position
+		{
+			get
+			{
+				return this._Position;
+			}
+			set
+			{
+				if ((this._Position != value))
+				{
+					this._Position = value;
+				}
+			}
+		}
+	}
+	
+	public partial class ShowEmployeeNamesResult
+	{
+		
+		private string _Firstname;
+		
+		private string _Lastname;
+		
+		private string _Middlename;
+		
+		private string _Position;
+		
+		public ShowEmployeeNamesResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Firstname", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string Firstname
+		{
+			get
+			{
+				return this._Firstname;
+			}
+			set
+			{
+				if ((this._Firstname != value))
+				{
+					this._Firstname = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Lastname", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string Lastname
+		{
+			get
+			{
+				return this._Lastname;
+			}
+			set
+			{
+				if ((this._Lastname != value))
+				{
+					this._Lastname = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Middlename", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string Middlename
+		{
+			get
+			{
+				return this._Middlename;
+			}
+			set
+			{
+				if ((this._Middlename != value))
+				{
+					this._Middlename = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Position", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string Position
+		{
+			get
+			{
+				return this._Position;
+			}
+			set
+			{
+				if ((this._Position != value))
+				{
+					this._Position = value;
+				}
 			}
 		}
 	}

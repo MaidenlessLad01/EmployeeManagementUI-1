@@ -34,12 +34,15 @@
             this.pnlOptions = new System.Windows.Forms.Panel();
             this.picSignout = new System.Windows.Forms.PictureBox();
             this.pnlEmp = new System.Windows.Forms.Panel();
+            this.lblMName = new System.Windows.Forms.Label();
+            this.lblFName = new System.Windows.Forms.Label();
             this.lblPosition = new System.Windows.Forms.Label();
             this.picEmpImg = new System.Windows.Forms.PictureBox();
-            this.lblEmpName = new System.Windows.Forms.Label();
+            this.lblLName = new System.Windows.Forms.Label();
             this.pnlEmpDetails = new System.Windows.Forms.Panel();
-            this.attendance1 = new EmployeeUI.Attendance();
+            this.lblID = new System.Windows.Forms.Label();
             this.employeeDetails1 = new EmployeeUI.EmployeeDetails();
+            this.attendance1 = new EmployeeUI.Attendance();
             this.pnlOptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picSignout)).BeginInit();
             this.pnlEmp.SuspendLayout();
@@ -98,6 +101,9 @@
             this.lblSignOut.Size = new System.Drawing.Size(127, 31);
             this.lblSignOut.TabIndex = 1;
             this.lblSignOut.Text = "Sign Out";
+            this.lblSignOut.Click += new System.EventHandler(this.lblSignOut_Click);
+            this.lblSignOut.MouseEnter += new System.EventHandler(this.lblSignOut_MouseEnter_1);
+            this.lblSignOut.MouseLeave += new System.EventHandler(this.lblSignOut_MouseLeave_1);
             // 
             // pnlOptions
             // 
@@ -125,19 +131,47 @@
             this.picSignout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picSignout.TabIndex = 3;
             this.picSignout.TabStop = false;
+            this.picSignout.Click += new System.EventHandler(this.picSignout_Click);
             // 
             // pnlEmp
             // 
             this.pnlEmp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.pnlEmp.Controls.Add(this.lblID);
+            this.pnlEmp.Controls.Add(this.lblMName);
+            this.pnlEmp.Controls.Add(this.lblFName);
             this.pnlEmp.Controls.Add(this.lblPosition);
             this.pnlEmp.Controls.Add(this.picEmpImg);
-            this.pnlEmp.Controls.Add(this.lblEmpName);
+            this.pnlEmp.Controls.Add(this.lblLName);
             this.pnlEmp.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlEmp.Location = new System.Drawing.Point(256, 0);
             this.pnlEmp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlEmp.Name = "pnlEmp";
             this.pnlEmp.Size = new System.Drawing.Size(928, 303);
             this.pnlEmp.TabIndex = 3;
+            // 
+            // lblMName
+            // 
+            this.lblMName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.lblMName.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMName.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblMName.Location = new System.Drawing.Point(721, 48);
+            this.lblMName.Name = "lblMName";
+            this.lblMName.Size = new System.Drawing.Size(195, 58);
+            this.lblMName.TabIndex = 4;
+            this.lblMName.Text = "MName";
+            this.lblMName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblFName
+            // 
+            this.lblFName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.lblFName.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFName.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblFName.Location = new System.Drawing.Point(522, 48);
+            this.lblFName.Name = "lblFName";
+            this.lblFName.Size = new System.Drawing.Size(195, 58);
+            this.lblFName.TabIndex = 3;
+            this.lblFName.Text = "FName";
+            this.lblFName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblPosition
             // 
@@ -162,16 +196,17 @@
             this.picEmpImg.TabIndex = 0;
             this.picEmpImg.TabStop = false;
             // 
-            // lblEmpName
+            // lblLName
             // 
-            this.lblEmpName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.lblEmpName.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmpName.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblEmpName.Location = new System.Drawing.Point(321, 48);
-            this.lblEmpName.Name = "lblEmpName";
-            this.lblEmpName.Size = new System.Drawing.Size(572, 58);
-            this.lblEmpName.TabIndex = 1;
-            this.lblEmpName.Text = "Employee Name";
+            this.lblLName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.lblLName.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLName.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblLName.Location = new System.Drawing.Point(321, 48);
+            this.lblLName.Name = "lblLName";
+            this.lblLName.Size = new System.Drawing.Size(195, 58);
+            this.lblLName.TabIndex = 1;
+            this.lblLName.Text = "LName";
+            this.lblLName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pnlEmpDetails
             // 
@@ -184,14 +219,16 @@
             this.pnlEmpDetails.Size = new System.Drawing.Size(928, 392);
             this.pnlEmpDetails.TabIndex = 4;
             // 
-            // attendance1
+            // lblID
             // 
-            this.attendance1.Location = new System.Drawing.Point(0, 0);
-            this.attendance1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.attendance1.Name = "attendance1";
-            this.attendance1.Size = new System.Drawing.Size(925, 396);
-            this.attendance1.TabIndex = 1;
-            this.attendance1.Visible = false;
+            this.lblID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.lblID.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.lblID.Location = new System.Drawing.Point(23, 264);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(35, 24);
+            this.lblID.TabIndex = 5;
+            this.lblID.Text = "3";
             // 
             // employeeDetails1
             // 
@@ -201,6 +238,15 @@
             this.employeeDetails1.Name = "employeeDetails1";
             this.employeeDetails1.Size = new System.Drawing.Size(925, 396);
             this.employeeDetails1.TabIndex = 0;
+            // 
+            // attendance1
+            // 
+            this.attendance1.Location = new System.Drawing.Point(0, 0);
+            this.attendance1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.attendance1.Name = "attendance1";
+            this.attendance1.Size = new System.Drawing.Size(925, 396);
+            this.attendance1.TabIndex = 1;
+            this.attendance1.Visible = false;
             // 
             // EmployeeInfo
             // 
@@ -213,6 +259,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "EmployeeInfo";
             this.Text = "EmployeeInfo";
+            this.Load += new System.EventHandler(this.EmployeeInfo_Load);
             this.pnlOptions.ResumeLayout(false);
             this.pnlOptions.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picSignout)).EndInit();
@@ -232,9 +279,12 @@
         private System.Windows.Forms.Panel pnlEmp;
         private System.Windows.Forms.Label lblPosition;
         private System.Windows.Forms.PictureBox picEmpImg;
-        private System.Windows.Forms.Label lblEmpName;
+        private System.Windows.Forms.Label lblLName;
         private System.Windows.Forms.Panel pnlEmpDetails;
         private EmployeeDetails employeeDetails1;
         private Attendance attendance1;
+        private System.Windows.Forms.Label lblFName;
+        private System.Windows.Forms.Label lblMName;
+        private System.Windows.Forms.Label lblID;
     }
 }

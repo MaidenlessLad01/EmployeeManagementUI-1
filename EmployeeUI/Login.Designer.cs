@@ -29,7 +29,7 @@ namespace EmployeeUI
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlSideWall = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.picWall = new System.Windows.Forms.PictureBox();
             this.lbllogin = new System.Windows.Forms.Label();
@@ -41,22 +41,25 @@ namespace EmployeeUI
             this.lblNoacc = new System.Windows.Forms.Label();
             this.lblRegister = new System.Windows.Forms.Label();
             this.picEye = new System.Windows.Forms.PictureBox();
-            this.panel1.SuspendLayout();
+            this.picClose = new System.Windows.Forms.PictureBox();
+            this.pnlSideWall.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picWall)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEye)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picClose)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // pnlSideWall
             // 
-            this.panel1.BackColor = System.Drawing.Color.Navy;
-            this.panel1.Controls.Add(this.lblTitle);
-            this.panel1.Controls.Add(this.picWall);
-            this.panel1.Location = new System.Drawing.Point(413, -1);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(292, 437);
-            this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.pnlSideWall.BackColor = System.Drawing.Color.Navy;
+            this.pnlSideWall.Controls.Add(this.picClose);
+            this.pnlSideWall.Controls.Add(this.lblTitle);
+            this.pnlSideWall.Controls.Add(this.picWall);
+            this.pnlSideWall.Location = new System.Drawing.Point(413, -1);
+            this.pnlSideWall.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlSideWall.Name = "pnlSideWall";
+            this.pnlSideWall.Size = new System.Drawing.Size(292, 437);
+            this.pnlSideWall.TabIndex = 0;
+            this.pnlSideWall.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlSideWall_Paint);
             // 
             // lblTitle
             // 
@@ -79,7 +82,6 @@ namespace EmployeeUI
             this.picWall.Size = new System.Drawing.Size(291, 437);
             this.picWall.TabIndex = 1;
             this.picWall.TabStop = false;
-            this.picWall.Click += new System.EventHandler(this.picWall_Click);
             this.picWall.Paint += new System.Windows.Forms.PaintEventHandler(this.picWall_Paint);
             // 
             // lbllogin
@@ -197,12 +199,25 @@ namespace EmployeeUI
             this.picEye.TabStop = false;
             this.picEye.Click += new System.EventHandler(this.picEye_Click);
             // 
+            // picClose
+            // 
+            this.picClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picClose.Image = global::EmployeeUI.Properties.Resources.icons8_close_50;
+            this.picClose.Location = new System.Drawing.Point(250, 9);
+            this.picClose.Margin = new System.Windows.Forms.Padding(4);
+            this.picClose.Name = "picClose";
+            this.picClose.Size = new System.Drawing.Size(32, 25);
+            this.picClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picClose.TabIndex = 10;
+            this.picClose.TabStop = false;
+            this.picClose.Click += new System.EventHandler(this.picClose_Click);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(703, 433);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlSideWall);
             this.Controls.Add(this.lblRegister);
             this.Controls.Add(this.lblNoacc);
             this.Controls.Add(this.btnLogin);
@@ -217,10 +232,11 @@ namespace EmployeeUI
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.Load += new System.EventHandler(this.Login_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pnlSideWall.ResumeLayout(false);
+            this.pnlSideWall.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picWall)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEye)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picClose)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -228,7 +244,7 @@ namespace EmployeeUI
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlSideWall;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label lbllogin;
         private System.Windows.Forms.Label lblusername;
@@ -240,5 +256,6 @@ namespace EmployeeUI
         private System.Windows.Forms.Label lblNoacc;
         private System.Windows.Forms.Label lblRegister;
         private System.Windows.Forms.PictureBox picWall;
+        private System.Windows.Forms.PictureBox picClose;
     }
 }

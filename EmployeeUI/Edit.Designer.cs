@@ -29,7 +29,7 @@ namespace EmployeeUI
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlEmployeeDataContainer = new System.Windows.Forms.Panel();
             this.txtEmpID = new System.Windows.Forms.TextBox();
             this.lblEmpID = new System.Windows.Forms.Label();
@@ -48,6 +48,7 @@ namespace EmployeeUI
             this.btnFire = new System.Windows.Forms.Button();
             this.pnlEmployees = new System.Windows.Forms.Panel();
             this.dgvEmployees = new System.Windows.Forms.DataGridView();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.pnlEmployeeDataContainer.SuspendLayout();
             this.pnlEmployeeData.SuspendLayout();
             this.pnlEmployees.SuspendLayout();
@@ -126,7 +127,7 @@ namespace EmployeeUI
             // txtLName
             // 
             this.txtLName.BackColor = System.Drawing.SystemColors.Control;
-            this.txtLName.Location = new System.Drawing.Point(166, 136);
+            this.txtLName.Location = new System.Drawing.Point(166, 84);
             this.txtLName.Margin = new System.Windows.Forms.Padding(4);
             this.txtLName.Name = "txtLName";
             this.txtLName.Size = new System.Drawing.Size(164, 22);
@@ -135,7 +136,7 @@ namespace EmployeeUI
             // txtFName
             // 
             this.txtFName.BackColor = System.Drawing.SystemColors.Control;
-            this.txtFName.Location = new System.Drawing.Point(166, 87);
+            this.txtFName.Location = new System.Drawing.Point(166, 136);
             this.txtFName.Margin = new System.Windows.Forms.Padding(4);
             this.txtFName.Name = "txtFName";
             this.txtFName.Size = new System.Drawing.Size(164, 22);
@@ -167,7 +168,7 @@ namespace EmployeeUI
             // 
             this.lblLName.AutoSize = true;
             this.lblLName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLName.Location = new System.Drawing.Point(56, 134);
+            this.lblLName.Location = new System.Drawing.Point(56, 82);
             this.lblLName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLName.Name = "lblLName";
             this.lblLName.Size = new System.Drawing.Size(96, 20);
@@ -178,7 +179,7 @@ namespace EmployeeUI
             // 
             this.lblFName.AutoSize = true;
             this.lblFName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFName.Location = new System.Drawing.Point(61, 87);
+            this.lblFName.Location = new System.Drawing.Point(61, 136);
             this.lblFName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFName.Name = "lblFName";
             this.lblFName.Size = new System.Drawing.Size(97, 20);
@@ -262,6 +263,7 @@ namespace EmployeeUI
             // 
             this.pnlEmployees.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.pnlEmployees.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlEmployees.Controls.Add(this.btnRefresh);
             this.pnlEmployees.Controls.Add(this.dgvEmployees);
             this.pnlEmployees.Location = new System.Drawing.Point(27, 27);
             this.pnlEmployees.Margin = new System.Windows.Forms.Padding(4);
@@ -273,25 +275,43 @@ namespace EmployeeUI
             // 
             this.dgvEmployees.AllowUserToAddRows = false;
             this.dgvEmployees.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Navy;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvEmployees.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Navy;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvEmployees.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvEmployees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEmployees.EnableHeadersVisualStyles = false;
-            this.dgvEmployees.Location = new System.Drawing.Point(23, 23);
+            this.dgvEmployees.Location = new System.Drawing.Point(23, 51);
             this.dgvEmployees.Margin = new System.Windows.Forms.Padding(4);
             this.dgvEmployees.Name = "dgvEmployees";
             this.dgvEmployees.ReadOnly = true;
             this.dgvEmployees.RowHeadersVisible = false;
             this.dgvEmployees.RowHeadersWidth = 51;
-            this.dgvEmployees.Size = new System.Drawing.Size(827, 201);
+            this.dgvEmployees.Size = new System.Drawing.Size(827, 173);
             this.dgvEmployees.TabIndex = 1;
             this.dgvEmployees.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmployees_CellClick);
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.BackColor = System.Drawing.Color.Navy;
+            this.btnRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRefresh.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnRefresh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefresh.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnRefresh.Location = new System.Drawing.Point(730, 9);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(120, 34);
+            this.btnRefresh.TabIndex = 23;
+            this.btnRefresh.Text = "REFRESH";
+            this.btnRefresh.UseVisualStyleBackColor = false;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // Edit
             // 
@@ -331,5 +351,6 @@ namespace EmployeeUI
         private System.Windows.Forms.DataGridView dgvEmployees;
         private System.Windows.Forms.TextBox txtEmpID;
         private System.Windows.Forms.Label lblEmpID;
+        private System.Windows.Forms.Button btnRefresh;
     }
 }
