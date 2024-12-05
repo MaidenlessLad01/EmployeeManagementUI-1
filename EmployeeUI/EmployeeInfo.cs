@@ -23,6 +23,8 @@ namespace EmployeeUI
             //konek
             employeeID = empID;
             LoadInfo();
+            employeeDetails1.SetEmployeeID(empID);
+
         }
 
         private void btnProfile_Click(object sender, EventArgs e)
@@ -39,15 +41,27 @@ namespace EmployeeUI
 
         private void LoadInfo()
         {
-            //I-load ang names ug position sa employee
-            int employeeID = int.Parse(lblID.Text);
+            
 
+            // Ensure that the employee ID is correct before querying the database
+            MessageBox.Show(employeeID.ToString(), "Employee ID");
+
+            // Load employee data from the database using the stored employeeID
             var result = db.ShowEmployeeNames(employeeID).FirstOrDefault();
 
-            lblLName.Text = result.Lastname;
-            lblFName.Text = result.Firstname;
-            lblMName.Text = result.Middlename;
-            lblPosition.Text = result.Position;
+            if (result != null)
+            {
+                // Assign the loaded data to respective labelsdd
+                lblLName.Text = result.Lastname;
+                lblFName.Text = result.Firstname;
+                lblMName.Text = result.Middlename;
+                lblPosition.Text = result.Position;
+            }
+            else
+            {
+                MessageBox.Show("No employee data found for the given ID");
+            }
+
         }
 
         private void picSignout_Click(object sender, EventArgs e)

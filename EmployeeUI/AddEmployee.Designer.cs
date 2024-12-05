@@ -173,7 +173,7 @@ namespace EmployeeUI
             this.txtpassword.Name = "txtpassword";
             this.txtpassword.Size = new System.Drawing.Size(164, 22);
             this.txtpassword.TabIndex = 10;
-            this.txtpassword.TextChanged += new System.EventHandler(this.txtpassword_TextChanged);
+            
             // 
             // lblpassword
             // 
@@ -185,7 +185,6 @@ namespace EmployeeUI
             this.lblpassword.Size = new System.Drawing.Size(88, 20);
             this.lblpassword.TabIndex = 20;
             this.lblpassword.Text = "Password:";
-            this.lblpassword.Click += new System.EventHandler(this.lblpassword_Click);
             // 
             // dtpDoB
             // 

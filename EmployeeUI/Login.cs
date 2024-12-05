@@ -26,12 +26,6 @@ namespace EmployeeUI
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
         }
-
-        private void Login_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void picEye_Click(object sender, EventArgs e)
         {
             isPasswordVisible = !isPasswordVisible;
@@ -139,7 +133,7 @@ namespace EmployeeUI
             }
         }
 
-            private void picWall_Paint(object sender, PaintEventArgs e)
+        private void picWall_Paint(object sender, PaintEventArgs e)
         {
             base.OnPaint(e);
 

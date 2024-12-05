@@ -72,4 +72,13 @@
       <Column Name="Position" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
+  <Function Name="dbo.ShowEmployeeDetail" Method="ShowEmployeeDetail">
+    <Parameter Name="EmployeeID" Parameter="employeeID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="ShowEmployeeDetailResult">
+      <Column Name="gender" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="DoB" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="PhoneNumber" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
 </Database>

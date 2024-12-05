@@ -118,6 +118,13 @@ namespace EmployeeUI
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), employeeID);
 			return ((ISingleResult<ShowEmployeeNamesResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ShowEmployeeDetail")]
+		public ISingleResult<ShowEmployeeDetailResult> ShowEmployeeDetail([global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmployeeID", DbType="Int")] System.Nullable<int> employeeID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), employeeID);
+			return ((ISingleResult<ShowEmployeeDetailResult>)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.EmployeeDetail")]
@@ -756,6 +763,86 @@ namespace EmployeeUI
 				if ((this._Position != value))
 				{
 					this._Position = value;
+				}
+			}
+		}
+	}
+	
+	public partial class ShowEmployeeDetailResult
+	{
+		
+		private string _gender;
+		
+		private System.DateTime _DoB;
+		
+		private string _Email;
+		
+		private string _PhoneNumber;
+		
+		public ShowEmployeeDetailResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_gender", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string gender
+		{
+			get
+			{
+				return this._gender;
+			}
+			set
+			{
+				if ((this._gender != value))
+				{
+					this._gender = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DoB", DbType="Date NOT NULL")]
+		public System.DateTime DoB
+		{
+			get
+			{
+				return this._DoB;
+			}
+			set
+			{
+				if ((this._DoB != value))
+				{
+					this._DoB = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this._Email = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PhoneNumber", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string PhoneNumber
+		{
+			get
+			{
+				return this._PhoneNumber;
+			}
+			set
+			{
+				if ((this._PhoneNumber != value))
+				{
+					this._PhoneNumber = value;
 				}
 			}
 		}

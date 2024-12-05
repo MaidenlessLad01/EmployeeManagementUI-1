@@ -51,12 +51,25 @@ namespace EmployeeUI
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            //Confirmation, sure nga i-hire?
-            DialogResult check = new DialogResult();
-            check = MessageBox.Show("Are you sure you want to add employee?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            
+            //Check user inputs
+            string errorMessage = CheckInputs(); //check if fields are empty
+
+            if (!string.IsNullOrEmpty(errorMessage))
+            {
+                //Show errors and stop
+                MessageBox.Show(errorMessage, "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            //Confirmation
+            DialogResult check = MessageBox.Show("Are you sure you want to add this employee?",
+                                                 "Confirmation",
+                                                 MessageBoxButtons.YesNo,
+                                                 MessageBoxIcon.Question);
             if (check == DialogResult.Yes)
-            {   
-                //if yes, add employee sa database
+            {
+                // If confirmed, add employee to the database
                 db.AddEmployeeAcc
                 (
                     txtLName.Text,
@@ -66,19 +79,50 @@ namespace EmployeeUI
                     txtPhoneNum.Text,
                     cboGender.Text,
                     txtEmail.Text,
-                    cboPosition.Text,                     
+                    cboPosition.Text,
                     txtusername.Text,
                     txtpassword.Text
                 );
-                //isud sa DGV
+
+                // Load the updated data into the DataGridView
                 LoadEmployeeData();
-                
-                MessageBox.Show("Employee and Account added successfully!");
+
+                MessageBox.Show("Employee and account added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Access the main form and reload the DataGridView with new employee data
+                Form1 parentForm = (Form1)this.ParentForm;
+                parentForm.EmployeeListControl.ReloadEmployeeData();
             }
-            Form1 parentForm = (Form1)this.ParentForm; // Access the main form
-            parentForm.EmployeeListControl.ReloadEmployeeData(); // Reload the DGV kung naay changes
+
         }
-        
+        private string CheckInputs()
+        {
+            string errorMsg = "";
+            //Display if empty
+            if (string.IsNullOrWhiteSpace(txtLName.Text))
+                errorMsg += "Last Name is required.\n";
+            if (string.IsNullOrWhiteSpace(txtFName.Text))
+                errorMsg += "First Name is required.\n";
+            if (string.IsNullOrWhiteSpace(txtMName.Text))
+                errorMsg += "Middle Name is required.\n";
+            if (dtpDoB.Value == null || dtpDoB.Value > DateTime.Now)
+                errorMsg += "Date of Birth is invalid or missing.\n";
+            if (string.IsNullOrWhiteSpace(txtPhoneNum.Text))
+                errorMsg += "Phone Number is required.\n";
+            if (string.IsNullOrWhiteSpace(cboGender.Text))
+                errorMsg += "Gender is required.\n";
+            if (string.IsNullOrWhiteSpace(txtEmail.Text))
+                errorMsg += "Email is required.\n";
+            if (string.IsNullOrWhiteSpace(cboPosition.Text))
+                errorMsg += "Position is required.\n";
+            if (string.IsNullOrWhiteSpace(txtusername.Text))
+                errorMsg += "Username is required.\n";
+            if (string.IsNullOrWhiteSpace(txtpassword.Text))
+                errorMsg += "Password is required.\n";
+
+            return errorMsg; // Return all error messages as a single string
+        }
+
         private void LoadEmployeeData()
         {
             
@@ -107,16 +151,6 @@ namespace EmployeeUI
         {
             //Refresh eyyy idk ngano naa ni pero ana lang para aron ing non hahah
             LoadEmployeeData();
-        }
-
-        private void txtpassword_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblpassword_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
