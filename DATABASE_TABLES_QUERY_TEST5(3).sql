@@ -11,23 +11,7 @@ PhoneNumber varchar(30) not null,
 Gender varchar(30) not null,
 Email varchar(30) not null,
 Position varchar(30) not null,
-[Status] varchar(30) null default '-'
-)
-
-
-
-create table EmployeeEmail(
-EmailID int primary key identity(1,1),
-Email varchar(100) not null,
-EmployeeID int, 
-foreign key (employeeID) references EmployeeDetail(employeeID)
-)
-
-create table EmployeePhone(
-PhoneID int primary key identity(1,1) not null,
-EmployeeID int,
-PhoneNum varchar(30),
-foreign key (employeeID) references EmployeeDetail(employeeID)
+[Status] varchar(30) null default 'Active'
 )
 
 create table Account(
@@ -37,9 +21,39 @@ Username varchar(30) not null,
 EmployeeID int, foreign key(employeeID) references EmployeeDetail(employeeID)
 )
 
+create table Attendance(
+AttendanceID int primary key identity(1,1)not null,
+EmployeeID int, foreign key(EmployeeID) references EmployeeDetail(employeeID),
+TimeIn DateTime null,
+[TimeOut] DateTime null,
+TotalHours Decimal(5,2),
+[Date] DateTime not null 
+)
+
+create table Salary(
+SalaryID int primary key identity(1,1),
+EmployeeID int,
+HourlyRate decimal(5,2),
+HoursWorked decimal(5,2),
+TotalSalary decimal(5,2),
+foreign key(EmployeeID) references EmployeeDetail(EmployeeID)
+)
+
+drop table EmployeeDetail
+drop table account
+drop table Attendance
+drop table Salary
+
+
+
+
+
+
 update EmployeeDetail
 set Status = '-'
 where EmployeeID in (1,2,3,4)
+
+
 
 
 
@@ -53,13 +67,18 @@ set @newemployeeID = SCOPE_IDENTITY();
 insert into Account (username, [password],employeeID) values ('lorenz','bayotko',@newemployeeID)
 select * from Account
 
-dbcc checkident ('EmployeeDetail',RESEED,0)
-dbcc checkident ('Account',RESEED,0)
+insert into Salary (employeeID, HourlyRate) values (1,15.00)
+select * from Salary
+
+insert into Attendance ( EmployeeID,TimeIn, [Date]) values (1,GETDATE(),GETDATE())
+select * from Attendance
+dbcc checkident ('EmployeeDetail',RESEED)
+dbcc checkident ('Account',RESEED)
 delete from account
-where employeeID in (4)
+where employeeID in (1)
 
 delete from EmployeeDetail
-where employeeID in (4)
+where employeeID in (2)
 
 	
 
@@ -79,23 +98,62 @@ where employeeID in (4)
 	dbcc checkident ('Account',RESEED,@maxAccountID)
 	dbcc checkident ('EmployeeDetail',RESEED, @maxEmployeeID)
 
+	
+
+insert into Attendance(TimeIn, [Date])
+values (GETDATE(), GETDATE())
+
+SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'Salary';
+
+
+select * from Salary
 
 select * from EmployeeDetail
 
 select * from Account
 
+select * from Attendance
+
+
+
+Delete from Attendance
+where AttendanceID = 1
+
+
 --rename later
 --exec sp_renamedb test5, EmployeeManagement
 
-drop table account
-drop table EmployeePhone
-drop table EmployeeEmail
-drop table EmployeeDetail
 
 
+select * from EmployeeDetail
+
+delete from Salary
+where SalaryID in (0)
+
+delete from Attendance
+where AttendanceID = 0
+
+delete from EmployeeDetail
+where EmployeeID = 2
+
+delete from Account
+where AccountID = 3
+
+Update Attendance
+set TimeIn = GETDATE()
+where EmployeeID = 5
 
 
+	dbcc checkident ('Attendance',RESEED, 1)
+
+	dbcc checkident ('Account',RESEED,0)
+	dbcc checkident ('EmployeeDetail',RESEED, 0)
+	dbcc checkident ('Attendance',RESEED, 0)
+	dbcc checkident ('Salary',RESEED,0)
 
 
+	dbcc checkident ('Attendance',RESEED,@maxAccountID)
+	dbcc checkident ('EmployeeDetail',RESEED, @maxEmployeeID)
 
+	
 
