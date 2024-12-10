@@ -71,6 +71,7 @@
             this.btnRefresh.TabIndex = 23;
             this.btnRefresh.Text = "REFRESH";
             this.btnRefresh.UseVisualStyleBackColor = false;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // dgvInactEmployees
             // 

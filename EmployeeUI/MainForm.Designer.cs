@@ -30,6 +30,8 @@ namespace EmployeeUI
         private void InitializeComponent()
         {
             this.pnlOptions = new System.Windows.Forms.Panel();
+            this.btnPayroll = new System.Windows.Forms.Button();
+            this.btnArchive = new System.Windows.Forms.Button();
             this.picSignout = new System.Windows.Forms.PictureBox();
             this.lblSignOut = new System.Windows.Forms.Label();
             this.btnManage = new System.Windows.Forms.Button();
@@ -39,11 +41,11 @@ namespace EmployeeUI
             this.picClose = new System.Windows.Forms.PictureBox();
             this.lblEmployeeManagement = new System.Windows.Forms.Label();
             this.panelContainer = new System.Windows.Forms.Panel();
-            this.btnArchive = new System.Windows.Forms.Button();
             this.dashboard1 = new EmployeeUI.Dashboard();
             this.addEmployee1 = new EmployeeUI.AddEmployee();
             this.edit1 = new EmployeeUI.Edit();
             this.inactiveEmployees1 = new EmployeeUI.InactiveEmployees();
+            this.payrollUC1 = new EmployeeUI.PayrollUC();
             this.pnlOptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picSignout)).BeginInit();
             this.pnlName.SuspendLayout();
@@ -54,6 +56,7 @@ namespace EmployeeUI
             // pnlOptions
             // 
             this.pnlOptions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.pnlOptions.Controls.Add(this.btnPayroll);
             this.pnlOptions.Controls.Add(this.btnArchive);
             this.pnlOptions.Controls.Add(this.picSignout);
             this.pnlOptions.Controls.Add(this.lblSignOut);
@@ -66,6 +69,42 @@ namespace EmployeeUI
             this.pnlOptions.Name = "pnlOptions";
             this.pnlOptions.Size = new System.Drawing.Size(256, 695);
             this.pnlOptions.TabIndex = 0;
+            // 
+            // btnPayroll
+            // 
+            this.btnPayroll.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPayroll.FlatAppearance.BorderSize = 0;
+            this.btnPayroll.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnPayroll.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnPayroll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPayroll.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPayroll.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnPayroll.Location = new System.Drawing.Point(0, 429);
+            this.btnPayroll.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPayroll.Name = "btnPayroll";
+            this.btnPayroll.Size = new System.Drawing.Size(256, 83);
+            this.btnPayroll.TabIndex = 5;
+            this.btnPayroll.Text = "Payroll";
+            this.btnPayroll.UseVisualStyleBackColor = true;
+            this.btnPayroll.Click += new System.EventHandler(this.btnPayroll_Click);
+            // 
+            // btnArchive
+            // 
+            this.btnArchive.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnArchive.FlatAppearance.BorderSize = 0;
+            this.btnArchive.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnArchive.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnArchive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnArchive.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnArchive.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnArchive.Location = new System.Drawing.Point(0, 338);
+            this.btnArchive.Margin = new System.Windows.Forms.Padding(4);
+            this.btnArchive.Name = "btnArchive";
+            this.btnArchive.Size = new System.Drawing.Size(256, 83);
+            this.btnArchive.TabIndex = 4;
+            this.btnArchive.Text = "Archives";
+            this.btnArchive.UseVisualStyleBackColor = true;
+            this.btnArchive.Click += new System.EventHandler(this.btnArchive_Click);
             // 
             // picSignout
             // 
@@ -106,7 +145,7 @@ namespace EmployeeUI
             this.btnManage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnManage.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnManage.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnManage.Location = new System.Drawing.Point(0, 302);
+            this.btnManage.Location = new System.Drawing.Point(0, 248);
             this.btnManage.Margin = new System.Windows.Forms.Padding(4);
             this.btnManage.Name = "btnManage";
             this.btnManage.Size = new System.Drawing.Size(256, 83);
@@ -125,7 +164,7 @@ namespace EmployeeUI
             this.btnAddEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddEmployee.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnAddEmployee.Location = new System.Drawing.Point(0, 220);
+            this.btnAddEmployee.Location = new System.Drawing.Point(0, 166);
             this.btnAddEmployee.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddEmployee.Name = "btnAddEmployee";
             this.btnAddEmployee.Size = new System.Drawing.Size(256, 83);
@@ -145,7 +184,7 @@ namespace EmployeeUI
             this.btnDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDashboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDashboard.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnDashboard.Location = new System.Drawing.Point(0, 139);
+            this.btnDashboard.Location = new System.Drawing.Point(0, 85);
             this.btnDashboard.Margin = new System.Windows.Forms.Padding(4);
             this.btnDashboard.Name = "btnDashboard";
             this.btnDashboard.Size = new System.Drawing.Size(256, 83);
@@ -197,30 +236,13 @@ namespace EmployeeUI
             this.panelContainer.Controls.Add(this.addEmployee1);
             this.panelContainer.Controls.Add(this.edit1);
             this.panelContainer.Controls.Add(this.inactiveEmployees1);
+            this.panelContainer.Controls.Add(this.payrollUC1);
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContainer.Location = new System.Drawing.Point(256, 48);
             this.panelContainer.Margin = new System.Windows.Forms.Padding(4);
             this.panelContainer.Name = "panelContainer";
             this.panelContainer.Size = new System.Drawing.Size(928, 647);
             this.panelContainer.TabIndex = 5;
-            // 
-            // btnArchive
-            // 
-            this.btnArchive.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnArchive.FlatAppearance.BorderSize = 0;
-            this.btnArchive.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnArchive.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnArchive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnArchive.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnArchive.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnArchive.Location = new System.Drawing.Point(0, 392);
-            this.btnArchive.Margin = new System.Windows.Forms.Padding(4);
-            this.btnArchive.Name = "btnArchive";
-            this.btnArchive.Size = new System.Drawing.Size(256, 83);
-            this.btnArchive.TabIndex = 4;
-            this.btnArchive.Text = "Archives";
-            this.btnArchive.UseVisualStyleBackColor = true;
-            this.btnArchive.Click += new System.EventHandler(this.btnArchive_Click);
             // 
             // dashboard1
             // 
@@ -255,6 +277,14 @@ namespace EmployeeUI
             this.inactiveEmployees1.Size = new System.Drawing.Size(928, 647);
             this.inactiveEmployees1.TabIndex = 3;
             this.inactiveEmployees1.Visible = false;
+            // 
+            // payrollUC1
+            // 
+            this.payrollUC1.Location = new System.Drawing.Point(0, 0);
+            this.payrollUC1.Name = "payrollUC1";
+            this.payrollUC1.Size = new System.Drawing.Size(928, 647);
+            this.payrollUC1.TabIndex = 4;
+            this.payrollUC1.Visible = false;
             // 
             // MainForm
             // 
@@ -296,6 +326,8 @@ namespace EmployeeUI
         private Edit edit1;
         private System.Windows.Forms.Button btnArchive;
         private InactiveEmployees inactiveEmployees1;
+        private PayrollUC payrollUC1;
+        private System.Windows.Forms.Button btnPayroll;
     }
 }
 

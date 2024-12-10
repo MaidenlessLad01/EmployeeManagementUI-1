@@ -38,6 +38,7 @@ namespace EmployeeUI
             dashboard1.Visible = true;
             addEmployee1.Visible = false;
             inactiveEmployees1.Visible = false;
+            payrollUC1.Visible = false;
             edit1.Visible = false;
         }
 
@@ -82,6 +83,7 @@ namespace EmployeeUI
             dashboard1.Visible = false;
             addEmployee1.Visible = true;
             edit1.Visible = false;
+            payrollUC1.Visible = false;
         }
 
         private void picSignout_Click(object sender, EventArgs e)
@@ -104,6 +106,7 @@ namespace EmployeeUI
             inactiveEmployees1.Visible = false;
             dashboard1.Visible = false;
             addEmployee1.Visible = false;
+            payrollUC1.Visible=false;
             edit1.Visible = true;
         }
 
@@ -112,7 +115,17 @@ namespace EmployeeUI
             dashboard1.Visible = false;
             addEmployee1.Visible = false;
             edit1.Visible = false;
+            payrollUC1.Visible=false;
             inactiveEmployees1.Visible = true;
+        }
+
+        private void btnPayroll_Click(object sender, EventArgs e)
+        {
+            dashboard1.Visible = false;
+            addEmployee1.Visible = false;
+            edit1.Visible = false;
+            payrollUC1.Visible = true;
+            inactiveEmployees1.Visible = false;
         }
     }
 

@@ -34,5 +34,10 @@ namespace EmployeeUI
                                     };
             dgvInactEmployees.DataSource = inactiveEmployees.ToList();
         }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            LoadInactiveEmployees();
+        }
     }
 }

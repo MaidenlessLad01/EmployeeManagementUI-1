@@ -106,6 +106,7 @@ namespace EmployeeUI
             var employees = from e in db.EmployeeDetails
                             join a in db.Accounts on e.EmployeeID equals a.EmployeeID
                             join s in db.Salaries on e.EmployeeID equals s.EmployeeID
+                            where e.Status == "Active"
                             select new
                             {
                                 e.EmployeeID,
