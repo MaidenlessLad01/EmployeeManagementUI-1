@@ -1,7 +1,7 @@
 ﻿
 namespace EmployeeUI
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -39,9 +39,11 @@ namespace EmployeeUI
             this.picClose = new System.Windows.Forms.PictureBox();
             this.lblEmployeeManagement = new System.Windows.Forms.Label();
             this.panelContainer = new System.Windows.Forms.Panel();
+            this.btnArchive = new System.Windows.Forms.Button();
             this.dashboard1 = new EmployeeUI.Dashboard();
             this.addEmployee1 = new EmployeeUI.AddEmployee();
             this.edit1 = new EmployeeUI.Edit();
+            this.inactiveEmployees1 = new EmployeeUI.InactiveEmployees();
             this.pnlOptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picSignout)).BeginInit();
             this.pnlName.SuspendLayout();
@@ -52,6 +54,7 @@ namespace EmployeeUI
             // pnlOptions
             // 
             this.pnlOptions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.pnlOptions.Controls.Add(this.btnArchive);
             this.pnlOptions.Controls.Add(this.picSignout);
             this.pnlOptions.Controls.Add(this.lblSignOut);
             this.pnlOptions.Controls.Add(this.btnManage);
@@ -193,12 +196,31 @@ namespace EmployeeUI
             this.panelContainer.Controls.Add(this.dashboard1);
             this.panelContainer.Controls.Add(this.addEmployee1);
             this.panelContainer.Controls.Add(this.edit1);
+            this.panelContainer.Controls.Add(this.inactiveEmployees1);
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContainer.Location = new System.Drawing.Point(256, 48);
             this.panelContainer.Margin = new System.Windows.Forms.Padding(4);
             this.panelContainer.Name = "panelContainer";
             this.panelContainer.Size = new System.Drawing.Size(928, 647);
             this.panelContainer.TabIndex = 5;
+            // 
+            // btnArchive
+            // 
+            this.btnArchive.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnArchive.FlatAppearance.BorderSize = 0;
+            this.btnArchive.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnArchive.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnArchive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnArchive.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnArchive.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnArchive.Location = new System.Drawing.Point(0, 392);
+            this.btnArchive.Margin = new System.Windows.Forms.Padding(4);
+            this.btnArchive.Name = "btnArchive";
+            this.btnArchive.Size = new System.Drawing.Size(256, 83);
+            this.btnArchive.TabIndex = 4;
+            this.btnArchive.Text = "Archives";
+            this.btnArchive.UseVisualStyleBackColor = true;
+            this.btnArchive.Click += new System.EventHandler(this.btnArchive_Click);
             // 
             // dashboard1
             // 
@@ -226,7 +248,15 @@ namespace EmployeeUI
             this.edit1.Size = new System.Drawing.Size(928, 647);
             this.edit1.TabIndex = 2;
             // 
-            // Form1
+            // inactiveEmployees1
+            // 
+            this.inactiveEmployees1.Location = new System.Drawing.Point(0, -4);
+            this.inactiveEmployees1.Name = "inactiveEmployees1";
+            this.inactiveEmployees1.Size = new System.Drawing.Size(928, 647);
+            this.inactiveEmployees1.TabIndex = 3;
+            this.inactiveEmployees1.Visible = false;
+            // 
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -235,9 +265,9 @@ namespace EmployeeUI
             this.Controls.Add(this.pnlName);
             this.Controls.Add(this.pnlOptions);
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "MainForm";
             this.pnlOptions.ResumeLayout(false);
             this.pnlOptions.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picSignout)).EndInit();
@@ -264,6 +294,8 @@ namespace EmployeeUI
         private Dashboard dashboard1;
         private AddEmployee addEmployee1;
         private Edit edit1;
+        private System.Windows.Forms.Button btnArchive;
+        private InactiveEmployees inactiveEmployees1;
     }
 }
 

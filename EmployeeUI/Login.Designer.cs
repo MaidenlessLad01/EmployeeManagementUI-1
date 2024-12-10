@@ -30,6 +30,7 @@ namespace EmployeeUI
         private void InitializeComponent()
         {
             this.pnlSideWall = new System.Windows.Forms.Panel();
+            this.picClose = new System.Windows.Forms.PictureBox();
             this.lblTitle = new System.Windows.Forms.Label();
             this.picWall = new System.Windows.Forms.PictureBox();
             this.lbllogin = new System.Windows.Forms.Label();
@@ -41,11 +42,10 @@ namespace EmployeeUI
             this.lblNoacc = new System.Windows.Forms.Label();
             this.lblRegister = new System.Windows.Forms.Label();
             this.picEye = new System.Windows.Forms.PictureBox();
-            this.picClose = new System.Windows.Forms.PictureBox();
             this.pnlSideWall.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEye)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picClose)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlSideWall
@@ -61,12 +61,26 @@ namespace EmployeeUI
             this.pnlSideWall.TabIndex = 0;
             this.pnlSideWall.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlSideWall_Paint);
             // 
+            // picClose
+            // 
+            this.picClose.BackColor = System.Drawing.Color.Transparent;
+            this.picClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picClose.Image = global::EmployeeUI.Properties.Resources.icons8_close_50;
+            this.picClose.Location = new System.Drawing.Point(250, 9);
+            this.picClose.Margin = new System.Windows.Forms.Padding(4);
+            this.picClose.Name = "picClose";
+            this.picClose.Size = new System.Drawing.Size(32, 25);
+            this.picClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picClose.TabIndex = 10;
+            this.picClose.TabStop = false;
+            this.picClose.Click += new System.EventHandler(this.picClose_Click);
+            // 
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblTitle.Location = new System.Drawing.Point(56, 202);
+            this.lblTitle.Location = new System.Drawing.Point(56, 258);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(181, 62);
@@ -126,6 +140,7 @@ namespace EmployeeUI
             this.txtpassword.Size = new System.Drawing.Size(359, 30);
             this.txtpassword.TabIndex = 5;
             this.txtpassword.UseSystemPasswordChar = true;
+            this.txtpassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtpassword_KeyDown);
             // 
             // lblpassword
             // 
@@ -199,19 +214,6 @@ namespace EmployeeUI
             this.picEye.TabStop = false;
             this.picEye.Click += new System.EventHandler(this.picEye_Click);
             // 
-            // picClose
-            // 
-            this.picClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picClose.Image = global::EmployeeUI.Properties.Resources.icons8_close_50;
-            this.picClose.Location = new System.Drawing.Point(250, 9);
-            this.picClose.Margin = new System.Windows.Forms.Padding(4);
-            this.picClose.Name = "picClose";
-            this.picClose.Size = new System.Drawing.Size(32, 25);
-            this.picClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picClose.TabIndex = 10;
-            this.picClose.TabStop = false;
-            this.picClose.Click += new System.EventHandler(this.picClose_Click);
-            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -231,11 +233,12 @@ namespace EmployeeUI
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Login_KeyDown);
             this.pnlSideWall.ResumeLayout(false);
             this.pnlSideWall.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEye)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picClose)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

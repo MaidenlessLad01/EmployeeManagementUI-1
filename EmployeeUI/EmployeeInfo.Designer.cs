@@ -42,12 +42,14 @@
             this.lblLName = new System.Windows.Forms.Label();
             this.pnlEmpDetails = new System.Windows.Forms.Panel();
             this.employeeDetails1 = new EmployeeUI.EmployeeDetails();
-            this.attendance1 = new EmployeeUI.Attendance();
+            this.attendance1 = new EmployeeUI.AttendanceUC();
+            this.picClose = new System.Windows.Forms.PictureBox();
             this.pnlOptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picSignout)).BeginInit();
             this.pnlEmp.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picEmpImg)).BeginInit();
             this.pnlEmpDetails.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picClose)).BeginInit();
             this.SuspendLayout();
             // 
             // btnProfile
@@ -136,6 +138,7 @@
             // pnlEmp
             // 
             this.pnlEmp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.pnlEmp.Controls.Add(this.picClose);
             this.pnlEmp.Controls.Add(this.lblID);
             this.pnlEmp.Controls.Add(this.lblMName);
             this.pnlEmp.Controls.Add(this.lblFName);
@@ -248,6 +251,19 @@
             this.attendance1.TabIndex = 1;
             this.attendance1.Visible = false;
             // 
+            // picClose
+            // 
+            this.picClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picClose.Image = global::EmployeeUI.Properties.Resources.icons8_close_50;
+            this.picClose.Location = new System.Drawing.Point(883, 13);
+            this.picClose.Margin = new System.Windows.Forms.Padding(4);
+            this.picClose.Name = "picClose";
+            this.picClose.Size = new System.Drawing.Size(32, 25);
+            this.picClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picClose.TabIndex = 6;
+            this.picClose.TabStop = false;
+            this.picClose.Click += new System.EventHandler(this.picClose_Click);
+            // 
             // EmployeeInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -266,6 +282,7 @@
             this.pnlEmp.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picEmpImg)).EndInit();
             this.pnlEmpDetails.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picClose)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -282,9 +299,10 @@
         private System.Windows.Forms.Label lblLName;
         private System.Windows.Forms.Panel pnlEmpDetails;
         private EmployeeDetails employeeDetails1;
-        private Attendance attendance1;
+        private AttendanceUC attendance1;
         private System.Windows.Forms.Label lblFName;
         private System.Windows.Forms.Label lblMName;
         private System.Windows.Forms.Label lblID;
+        private System.Windows.Forms.PictureBox picClose;
     }
 }

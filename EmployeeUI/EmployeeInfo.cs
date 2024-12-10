@@ -24,7 +24,9 @@ namespace EmployeeUI
             employeeID = empID;
             LoadInfo();
             employeeDetails1.SetEmployeeID(empID);
-
+            attendance1.GetEmployeeID(empID);
+            this.FormBorderStyle = FormBorderStyle.None;
+            picClose.Parent = this;
         }
 
         private void btnProfile_Click(object sender, EventArgs e)
@@ -105,6 +107,11 @@ namespace EmployeeUI
         {
             //Set the label to employeeID
             lblID.Text = employeeID.ToString();
+        }
+
+        private void picClose_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }

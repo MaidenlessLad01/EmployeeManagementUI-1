@@ -18,6 +18,7 @@ namespace EmployeeUI
         //var dec
         
         database1DataContext db = new database1DataContext();
+        Authentication auth = new Authentication();
         bool isPasswordVisible = false;
      
 
@@ -25,6 +26,7 @@ namespace EmployeeUI
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
+            picClose.Parent = picWall;
         }
         private void picEye_Click(object sender, EventArgs e)
         {
@@ -71,31 +73,23 @@ namespace EmployeeUI
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            //LINQ to get the necessary credentials sa employee nga mo log in
-            var auth = (from emp in db.EmployeeDetails
-                        join accounts in db.Accounts
-                        on emp.EmployeeID equals accounts.EmployeeID
-                        where accounts.Username == txtusername.Text
-                        select new { accounts.Username, accounts.Password, emp.Position, emp.EmployeeID }).FirstOrDefault();
+            string position;
+            int employeeID = 0;
 
-
-            //authenticate if sakto ba 
-            if (auth != null && auth.Password == txtpassword.Text)
+            if (auth.Login(txtusername.Text, txtpassword.Text, out employeeID, out position))
             {
-                //if position kay manager, show admin UI
-                if (auth.Position == "Manager")
+                // If position is Manager, show admin UI
+                if (position == "Manager")
                 {
-                    MessageBox.Show("Login Successful. Welcome Admin " + txtusername.Text.ToLower().ToUpper(), "Login");
-                    //set the employee's ID 
-                    Form1 f1 = new Form1(auth.EmployeeID);
+                    MessageBox.Show("Login Successful. Welcome Admin " + txtusername.Text.ToUpper(), "Login");
+                    MainForm f1 = new MainForm(employeeID); // Pass the employee's ID
                     f1.Show();
                     this.Hide();
                 }
-                else //show employeeinfo ui
+                else // Show employee info UI
                 {
                     MessageBox.Show("Login Successful. Welcome " + txtusername.Text, "Login");
-                    //set the employee's ID
-                    EmployeeInfo empinfo = new EmployeeInfo(auth.EmployeeID);
+                    EmployeeInfo empinfo = new EmployeeInfo(employeeID); // Pass the employee's ID
                     empinfo.Show();
                     this.Hide();
                 }
@@ -104,7 +98,6 @@ namespace EmployeeUI
             {
                 MessageBox.Show("Incorrect Credentials.\n\n(Case Sensitive)", "Error");
             }
-
         }
 
         private void pnlSideWall_Paint(object sender, PaintEventArgs e)
@@ -162,6 +155,22 @@ namespace EmployeeUI
         private void picClose_Click(object sender, EventArgs e)
         {
             Environment.Exit(0);
+        }
+
+        private void Login_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnLogin.PerformClick();
+            }
+        }
+
+        private void txtpassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnLogin.PerformClick();
+            }
         }
     }
 }

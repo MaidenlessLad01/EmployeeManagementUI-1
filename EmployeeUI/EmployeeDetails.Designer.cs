@@ -142,6 +142,7 @@
             // 
             // dtpDoB
             // 
+            this.dtpDoB.Enabled = false;
             this.dtpDoB.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpDoB.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpDoB.Location = new System.Drawing.Point(136, 12);
@@ -232,9 +233,9 @@
             // lblEmpIDLabel
             // 
             this.lblEmpIDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmpIDLabel.Location = new System.Drawing.Point(127, 12);
+            this.lblEmpIDLabel.Location = new System.Drawing.Point(105, 12);
             this.lblEmpIDLabel.Name = "lblEmpIDLabel";
-            this.lblEmpIDLabel.Size = new System.Drawing.Size(163, 30);
+            this.lblEmpIDLabel.Size = new System.Drawing.Size(219, 30);
             this.lblEmpIDLabel.TabIndex = 0;
             this.lblEmpIDLabel.Text = "Emlpoyee ID";
             this.lblEmpIDLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

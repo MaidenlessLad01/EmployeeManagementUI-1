@@ -1,5 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="test5" Class="database1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=(localdb)\LocalDB;Initial Catalog=test5;Integrated Security=True;Trust Server Certificate=True" SettingsObjectName="EmployeeUI.Properties.Settings" SettingsPropertyName="test5ConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Account" Member="Accounts">
+    <Type Name="Account">
+      <Column Name="AccountID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Username" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="EmployeeID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="EmployeeDetail_Account" Member="EmployeeDetail" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="EmployeeDetail" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Attendance" Member="Attendances">
+    <Type Name="Attendance">
+      <Column Name="AttendanceID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EmployeeID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TimeIn" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="TimeOut" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TotalHours" Type="System.Decimal" DbType="Decimal(5,2)" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="EmployeeDetail_Attendance" Member="EmployeeDetail" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="EmployeeDetail" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Salary" Member="Salaries">
+    <Type Name="Salary">
+      <Column Name="SalaryID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EmployeeID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HourlyRate" Type="System.Decimal" DbType="Decimal(5,2)" CanBeNull="true" />
+      <Column Name="HoursWorked" Type="System.Decimal" DbType="Decimal(5,2)" CanBeNull="true" />
+      <Column Name="TotalSalary" Type="System.Decimal" DbType="Decimal(5,2)" CanBeNull="true" />
+      <Association Name="EmployeeDetail_Salary" Member="EmployeeDetail" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="EmployeeDetail" IsForeignKey="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.EmployeeDetail" Member="EmployeeDetails">
     <Type Name="EmployeeDetail">
       <Column Name="EmployeeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -13,39 +43,10 @@
       <Column Name="Position" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
       <Column Name="Status" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
       <Association Name="EmployeeDetail_Account" Member="Accounts" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="Account" />
+      <Association Name="EmployeeDetail_Attendance" Member="Attendances" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="Attendance" />
+      <Association Name="EmployeeDetail_Salary" Member="Salaries" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="Salary" />
     </Type>
   </Table>
-  <Table Name="dbo.Account" Member="Accounts">
-    <Type Name="Account">
-      <Column Name="AccountID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Username" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="Password" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="EmployeeID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="EmployeeDetail_Account" Member="EmployeeDetail" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="EmployeeDetail" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Function Name="dbo.AddEmployeeAcc" Method="AddEmployeeAcc">
-    <Parameter Name="Lastname" Parameter="lastname" Type="System.String" DbType="VarChar(30)" />
-    <Parameter Name="Firstname" Parameter="firstname" Type="System.String" DbType="VarChar(30)" />
-    <Parameter Name="Middlename" Parameter="middlename" Type="System.String" DbType="VarChar(30)" />
-    <Parameter Name="DoB" Parameter="doB" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="PhoneNumber" Parameter="phoneNumber" Type="System.String" DbType="VarChar(30)" />
-    <Parameter Name="Gender" Parameter="gender" Type="System.String" DbType="VarChar(30)" />
-    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="VarChar(30)" />
-    <Parameter Name="Position" Parameter="position" Type="System.String" DbType="VarChar(30)" />
-    <Parameter Name="Username" Parameter="username" Type="System.String" DbType="VarChar(30)" />
-    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="VarChar(30)" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.UpdateEmpInfo" Method="UpdateEmpInfo">
-    <Parameter Name="EmployeeID" Parameter="employeeID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Lastname" Parameter="lastname" Type="System.String" DbType="VarChar(30)" />
-    <Parameter Name="Firstname" Parameter="firstname" Type="System.String" DbType="VarChar(30)" />
-    <Parameter Name="Middlename" Parameter="middlename" Type="System.String" DbType="VarChar(30)" />
-    <Parameter Name="Position" Parameter="position" Type="System.String" DbType="VarChar(30)" />
-    <Parameter Name="Status" Parameter="status" Type="System.String" DbType="VarChar(30)" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Name="dbo.FireEmployees" Method="FireEmployees">
     <Parameter Name="EmployeeID" Parameter="employeeID" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
@@ -80,5 +81,43 @@
       <Column Name="Email" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
       <Column Name="PhoneNumber" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
     </ElementType>
+  </Function>
+  <Function Name="dbo.AddEmployeeAcc" Method="AddEmployeeAcc">
+    <Parameter Name="Lastname" Parameter="lastname" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="Firstname" Parameter="firstname" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="Middlename" Parameter="middlename" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="DoB" Parameter="doB" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="PhoneNumber" Parameter="phoneNumber" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="Gender" Parameter="gender" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="Position" Parameter="position" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="Username" Parameter="username" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="HourlyRate" Parameter="hourlyRate" Type="System.Decimal" DbType="Decimal(5,2)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.TimeIn" Method="TimeIn">
+    <Parameter Name="EmployeeID" Parameter="employeeID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SelectedDate" Parameter="selectedDate" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.TimeOut" Method="TimeOut">
+    <Parameter Name="EmployeeID" Parameter="employeeID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SelectedDate" Parameter="selectedDate" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.UpdateEmpInfo" Method="UpdateEmpInfo">
+    <Parameter Name="EmployeeID" Parameter="employeeID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Lastname" Parameter="lastname" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="Firstname" Parameter="firstname" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="Middlename" Parameter="middlename" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="DoB" Parameter="doB" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="PhoneNum" Parameter="phoneNum" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="Gender" Parameter="gender" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="Position" Parameter="position" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="Status" Parameter="status" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="HourlyRate" Parameter="hourlyRate" Type="System.Decimal" DbType="Decimal(5,2)" />
+    <Return Type="System.Int32" />
   </Function>
 </Database>

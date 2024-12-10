@@ -10,21 +10,25 @@ using System.Windows.Forms;
 
 namespace EmployeeUI
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         //declare global vars
 
         //initialize ang usercontrol
         public Edit EmployeeListControl { get; set; }
         public AddEmployee AddEmp { get; set; }
+
+        public InactiveEmployees InactiveEmp { get; set; }
         //kuhaon ang employeeID
         private int employeeID;
-        public Form1(int empID)
+        public MainForm(int empID)
         {
             InitializeComponent();
             //konek
             employeeID = empID;
             this.FormBorderStyle = FormBorderStyle.None;
+            InactiveEmp = new InactiveEmployees();
+            this.Controls.Add(InactiveEmp);
         }
 
 
@@ -33,6 +37,7 @@ namespace EmployeeUI
             //show dashboard
             dashboard1.Visible = true;
             addEmployee1.Visible = false;
+            inactiveEmployees1.Visible = false;
             edit1.Visible = false;
         }
 
@@ -73,6 +78,7 @@ namespace EmployeeUI
         private void btnAddEmployee_Click(object sender, EventArgs e)
         {
             //show addemployee
+            inactiveEmployees1.Visible = false;
             dashboard1.Visible = false;
             addEmployee1.Visible = true;
             edit1.Visible = false;
@@ -95,9 +101,18 @@ namespace EmployeeUI
         private void btnManage_Click(object sender, EventArgs e)
         {
             //show manage emp
+            inactiveEmployees1.Visible = false;
             dashboard1.Visible = false;
             addEmployee1.Visible = false;
             edit1.Visible = true;
+        }
+
+        private void btnArchive_Click(object sender, EventArgs e)
+        {
+            dashboard1.Visible = false;
+            addEmployee1.Visible = false;
+            edit1.Visible = false;
+            inactiveEmployees1.Visible = true;
         }
     }
 

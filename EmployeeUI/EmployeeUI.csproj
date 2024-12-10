@@ -60,12 +60,14 @@
     <Compile Include="AddEmployee.Designer.cs">
       <DependentUpon>AddEmployee.cs</DependentUpon>
     </Compile>
-    <Compile Include="Attendance.cs">
+    <Compile Include="AttendanceUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Attendance.Designer.cs">
-      <DependentUpon>Attendance.cs</DependentUpon>
+    <Compile Include="AttendanceUC.Designer.cs">
+      <DependentUpon>AttendanceUC.cs</DependentUpon>
     </Compile>
+    <Compile Include="AttendanceClass.cs" />
+    <Compile Include="Authentication.cs" />
     <Compile Include="Dashboard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -83,6 +85,9 @@
     <Compile Include="Edit.Designer.cs">
       <DependentUpon>Edit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Employee.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="EmployeeDetails.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -95,11 +100,17 @@
     <Compile Include="EmployeeInfo.Designer.cs">
       <DependentUpon>EmployeeInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InactiveEmployees.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InactiveEmployees.Designer.cs">
+      <DependentUpon>InactiveEmployees.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -118,8 +129,8 @@
     <EmbeddedResource Include="AddEmployee.resx">
       <DependentUpon>AddEmployee.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Attendance.resx">
-      <DependentUpon>Attendance.cs</DependentUpon>
+    <EmbeddedResource Include="AttendanceUC.resx">
+      <DependentUpon>AttendanceUC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
@@ -133,8 +144,11 @@
     <EmbeddedResource Include="EmployeeInfo.resx">
       <DependentUpon>EmployeeInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InactiveEmployees.resx">
+      <DependentUpon>InactiveEmployees.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

@@ -26,7 +26,7 @@ namespace EmployeeUI
         private void AddEmployee_Load(object sender, EventArgs e)
         {
             // Ensure the reference to the parent form is set when the control loads
-            if (this.ParentForm is Form1 parentForm)
+            if (this.ParentForm is MainForm parentForm)
             {
                 parentForm.AddEmp = this; // Set the UserControl reference in the parent form
             }
@@ -48,80 +48,56 @@ namespace EmployeeUI
             txtPhoneNum.Clear();
             cboGender.ResetText();
             cboPosition.ResetText();
+            txtusername.Clear();
+            txtpassword.Clear();
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            
-            //Check user inputs
-            string errorMessage = CheckInputs(); //check if fields are empty
-
-            if (!string.IsNullOrEmpty(errorMessage))
-            {
-                //Show errors and stop
-                MessageBox.Show(errorMessage, "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            //Confirmation
+            // Confirmation dialog
             DialogResult check = MessageBox.Show("Are you sure you want to add this employee?",
-                                                 "Confirmation",
-                                                 MessageBoxButtons.YesNo,
-                                                 MessageBoxIcon.Question);
+                                                 "Confirmation", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
             if (check == DialogResult.Yes)
             {
-                // If confirmed, add employee to the database
-                db.AddEmployeeAcc
-                (
-                    txtLName.Text,
-                    txtFName.Text,
-                    txtMName.Text,
-                    dtpDoB.Value,
-                    txtPhoneNum.Text,
-                    cboGender.Text,
-                    txtEmail.Text,
-                    cboPosition.Text,
-                    txtusername.Text,
-                    txtpassword.Text
-                );
+                try
+                {
+                    // Create an Employee instance
+                    Employee emp = new Employee();
 
-                // Load the updated data into the DataGridView
-                LoadEmployeeData();
+                    string getrole = cboPosition.Text;
 
-                MessageBox.Show("Employee and account added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtHourlyRate.Text = Convert.ToString(emp.GetHourlyRate(getrole));
 
-                // Access the main form and reload the DataGridView with new employee data
-                Form1 parentForm = (Form1)this.ParentForm;
-                parentForm.EmployeeListControl.ReloadEmployeeData();
+                    // Add employee with all required data
+                    emp.AddEmployee(
+                        txtLName.Text,
+                        txtFName.Text,
+                        txtMName.Text,
+                        dtpDoB.Value,
+                        txtPhoneNum.Text,
+                        cboGender.Text,
+                        txtEmail.Text,
+                        cboPosition.Text,
+                        txtusername.Text,
+                        txtpassword.Text,
+                        Convert.ToDecimal(txtHourlyRate.Text)
+                    );
+                    // Load the updated data into the DataGridView
+                    LoadEmployeeData();
+
+                    MessageBox.Show("Employee and account added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Access the main form and reload the DataGridView with new employee data
+                    MainForm parentForm = (MainForm)this.ParentForm;
+                    parentForm.EmployeeListControl.ReloadEmployeeData();
+                }
+                catch (Exception ex)
+                {
+                    // Show validation or database error messages
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-
         }
-        private string CheckInputs()
-        {
-            string errorMsg = "";
-            //Display if empty
-            if (string.IsNullOrWhiteSpace(txtLName.Text))
-                errorMsg += "Last Name is required.\n";
-            if (string.IsNullOrWhiteSpace(txtFName.Text))
-                errorMsg += "First Name is required.\n";
-            if (string.IsNullOrWhiteSpace(txtMName.Text))
-                errorMsg += "Middle Name is required.\n";
-            if (dtpDoB.Value == null || dtpDoB.Value > DateTime.Now)
-                errorMsg += "Date of Birth is invalid or missing.\n";
-            if (string.IsNullOrWhiteSpace(txtPhoneNum.Text))
-                errorMsg += "Phone Number is required.\n";
-            if (string.IsNullOrWhiteSpace(cboGender.Text))
-                errorMsg += "Gender is required.\n";
-            if (string.IsNullOrWhiteSpace(txtEmail.Text))
-                errorMsg += "Email is required.\n";
-            if (string.IsNullOrWhiteSpace(cboPosition.Text))
-                errorMsg += "Position is required.\n";
-            if (string.IsNullOrWhiteSpace(txtusername.Text))
-                errorMsg += "Username is required.\n";
-            if (string.IsNullOrWhiteSpace(txtpassword.Text))
-                errorMsg += "Password is required.\n";
-
-            return errorMsg; // Return all error messages as a single string
-        }
+       
 
         private void LoadEmployeeData()
         {
@@ -129,6 +105,7 @@ namespace EmployeeUI
             // Fetch the employee and account data by joining the tables using LINQ
             var employees = from e in db.EmployeeDetails
                             join a in db.Accounts on e.EmployeeID equals a.EmployeeID
+                            join s in db.Salaries on e.EmployeeID equals s.EmployeeID
                             select new
                             {
                                 e.EmployeeID,
@@ -140,6 +117,7 @@ namespace EmployeeUI
                                 e.Gender,
                                 e.Email,
                                 e.Position,
+                                s.HourlyRate,
                                 a.Username,
                                 a.Password
                             };
@@ -151,6 +129,26 @@ namespace EmployeeUI
         {
             //Refresh eyyy idk ngano naa ni pero ana lang para aron ing non hahah
             LoadEmployeeData();
+        }
+
+        private void cboPosition_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Get the selected position from the ComboBox
+            string position = cboPosition.Text;
+
+            // Create an instance of Employee
+            Employee employee = new Employee();
+
+            // Get the corresponding hourly rate for the position
+            decimal hourlyRate = employee.GetHourlyRate(position);
+
+            // Display the hourly rate in the text box
+            txtHourlyRate.Text = hourlyRate.ToString("C");
+        }
+
+        private void dgvEmployee_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
